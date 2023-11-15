@@ -145,33 +145,7 @@ const Dashnew = () => {
                           Target component <br />
                           Waiting for approval
                           <br />
-{/* 
-                          <div className="bg-white w-screen h-[76px] p-5 text-black flex justify-between items-center">
-        <div className="flex justify-between">
-          <div className="text-2xl font-bold w-[798px]">
-            <span className="font-inter text-base font-normal leading-6 tracking-normal text-left">
-              I-chef
-            </span>
-          </div>
-        </div>
-        <div className="flex items-center space-x-4">
-          <button className="p-1.75">
-            <i className="fas fa-sync-alt"></i> Refresh
-          </button>
 
-          <span className="text-xs font-normal leading-10">
-            Last Updated: 09-Aug-2023 08:09 AM *
-          </span>
-
-          <button className="text-sm font-normal leading-15 text-red-600">
-            Logout
-          </button>
-
-          <button>
-            <i className="fas fa-adjust"></i> Theme
-          </button>
-        </div>
-      </div> */}
                         </div>
                       </div>
                     </div>
@@ -302,7 +276,9 @@ const Dashnew = () => {
                     className={`grow shrink basis-0 flex-col justify-start items-start gap-2.5 inline-flex w-[190px]`}
                   >
                     <div
-                      className={`self-stretch h-2 bg-${product.color} rounded-tr-md rounded-br-md`}
+                      // className={`self-stretch h-2 bg-${product.color} rounded-tr-md rounded-br-md`}
+                      className={`self-stretch h-2 bg-sky-500 rounded-tr-md rounded-br-md`}
+
                     />
                   </div>
                 </div>
@@ -350,7 +326,8 @@ const Dashnew = () => {
                     className={`grow shrink basis-0 flex-col justify-start items-start gap-2.5 inline-flex w-[190px]`}
                   >
                     <div
-                      className={`self-stretch h-2 bg-${product.color} rounded-tr-md rounded-br-md`}
+                      // className={`self-stretch h-2 bg-${product.color} rounded-tr-md rounded-br-md`}
+                      className={`self-stretch h-2 bg-amber-500 rounded-tr-md rounded-br-md`}
                     />
                   </div>
                 </div>

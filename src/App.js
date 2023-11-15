@@ -1,4 +1,3 @@
-// App.js
 import React from "react";
 import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 import LoginPage from "./pages/LoginPage";
@@ -7,16 +6,15 @@ import Sales from "./component/Sales";
 import TargetTable from "./component/Target";
 import Payment from "./component/Payment";
 import Tax from "./component/Tax";
-import './App.css'
+import "./App.css";
 import Dashnew from "./component/Dashnew";
-
 
 const MainLayout = ({ children }) => {
   return (
     <div>
       <div>
         <header className="shadow rounded-sm` w-screen ">
-          <div className=" h-[71  px] pt-[19px] pb-2.5 justify-between items-center bg-white shadow border border-fuchsia-50 flex flex-wrap ">
+          <div className=" h-[71px] pt-[19px] pb-2.5 justify-between items-center bg-white shadow border border-fuchsia-50 flex flex-wrap ">
             <div className="h-[42px] justify-start items-center gap-10 flex flex-wrap">
               <div className="justify-start items-center flex flex-wrap">
                 <div className="w-[26px] h-[26px] relative" />
@@ -42,14 +40,14 @@ const MainLayout = ({ children }) => {
                   </div>
                 </Link>
 
-                <Link to="/payment" >
+                <Link to="/payment">
                   <div className="p-2.5 justify-center items-center gap-2.5 flex">
                     <div className="text-black text-xs font-normal font-['Poppins']">
                       Payment
                     </div>
                   </div>
                 </Link>
-                <Link to = "/tax" >
+                <Link to="/tax">
                   <div className="p-2.5 justify-center items-center gap-2.5 flex">
                     <div className="text-black text-xs font-normal font-['Poppins']">
                       Tax
@@ -96,7 +94,7 @@ const App = () => {
     <Router>
       <Routes>
         <Route path="/" element={<LoginPage />} />
-        
+
         <Route
           path="/dashboard"
           element={
@@ -129,7 +127,7 @@ const App = () => {
             </MainLayout>
           }
         />
-        
+
         <Route path="/branch" element={<Mainpage />} />
         <Route path="/targetsetting" element={<TargetTable />} />
       </Routes>

@@ -20,53 +20,65 @@ export const dummyData = [
  export const newDataArray = [
     {
       deliveryBoy: "New Delivery Boy 1",
-      billNumber: "124",
+      billNumber: "1",
       customerName: "New Customer Name 1",
-      items: "New Item 1, New Item 2",
+      items: "New Item 1, ",
       value: "$120.00",
     },
     {
       deliveryBoy: "New Delivery Boy 1",
-      billNumber: "124",
+      billNumber: "2",
       customerName: "New Customer Name 1",
-      items: "New Item 1, New Item 2",
+      items: "New Item 1, ",
       value: "$120.00",
     },
     {
       deliveryBoy: "New Delivery Boy 1",
-      billNumber: "124",
+      billNumber: "3",
       customerName: "New Customer Name 1",
-      items: "New Item 1, New Item 2",
+      items: "New Item 1, ",
       value: "$120.00",
     },
     {
       deliveryBoy: "New Delivery Boy 1",
-      billNumber: "124",
+      billNumber: "4",
       customerName: "New Customer Name 1",
-      items: "New Item 1, New Item 2",
+      items: "New Item 1, ",
+      value: "$120.00",
+    },
+    
+    {
+      deliveryBoy: "New Delivery Boy 1",
+      billNumber: "5",
+      customerName: "New Customer Name 1",
+      items: "New Item 1",
+      value: "$120.00",
+    },
+    
+    {
+      deliveryBoy: "New Delivery Boy 1",
+      billNumber: "5",
+      customerName: "New Customer Name 1",
+      items: "New Item 1",
+      value: "$120.00",
+    },
+    
+    {
+      deliveryBoy: "New Delivery Boy 1",
+      billNumber: "5",
+      customerName: "New Customer Name 1",
+      items: "New Item 1",
       value: "$120.00",
     },
     {
       deliveryBoy: "New Delivery Boy 1",
-      billNumber: "124",
+      billNumber: "5",
       customerName: "New Customer Name 1",
-      items: "New Item 1, New Item 2",
+      items: "New Item 1",
       value: "$120.00",
     },
-    {
-      deliveryBoy: "New Delivery Boy 1",
-      billNumber: "124",
-      customerName: "New Customer Name 1",
-      items: "New Item 1, New Item 2",
-      value: "$120.00",
-    },
-    {
-      deliveryBoy: "New Delivery Boy 1",
-      billNumber: "124",
-      customerName: "New Customer Name 1",
-      items: "New Item 1, New Item 2",
-      value: "$120.00",
-    },
+    
+   
   ];
 
 
