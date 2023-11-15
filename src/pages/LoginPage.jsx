@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import vector from "../../src/images/Vector.png";
-import laptop from "../../src/images/main.png";
+import vector from "../../src/images/vector123.png";
+import laptop from "../../src/images/LightLaptop.svg";
 import { Link } from "react-router-dom";
 
 const LoginPage = () => {
@@ -41,21 +41,21 @@ const LoginPage = () => {
   };
 
   return (
-    <div className="bg-black h-screen ">
-      <div className="bg-black flex h-[30px] p-7">
-        <div className="text-white text-lg font-normal font-['Inter']">
+    <div className="bg-white h-screen  ">
+      <div className="bg-stone-50 border    flex h-[30px] p-7">
+        <div className="text-black text-lg shadow font-normal font-['Inter']">
           Logo{" "}
         </div>
-        <div className="grow shrink basis-0 text-white text-[12px] text-right font-normal font-['Inter']">
+        <div className="grow shrink basis-0 text-black text-[11px] text-right font-normal font-['Inter']">
           Last updated time 09-Aug-2023 08:09 AM
         </div>
       </div>
 
-      <div className="flex flex-wrap bg-black  gap-[100px] ml-[100px] p-12   ">
-        <div className="bg-black">
+      <div className="flex flex-wrap bg-white  gap-[100px] ml-[100px] p-12   ">
+        <div className="bg-white">
           <div className="relative">
             <img
-              className="opacity-25 w-[449.09px] h-[453px]"
+              className="opacity-25 w-[449.09px] h-[453px] "
               src={vector}
               alt="Background"
             />
