@@ -3,14 +3,12 @@ import React from "react";
 import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 import LoginPage from "./pages/LoginPage";
 import Mainpage from "./pages/Mainpage";
-import Dashboard from "./pages/Dashboard";
 import Sales from "./component/Sales";
 import TargetTable from "./component/Target";
 import Payment from "./component/Payment";
 import Tax from "./component/Tax";
 import './App.css'
 import Dashnew from "./component/Dashnew";
-import { DChart } from "./chart/DonutChart";
 
 
 const MainLayout = ({ children }) => {
@@ -98,14 +96,7 @@ const App = () => {
     <Router>
       <Routes>
         <Route path="/" element={<LoginPage />} />
-        <Route
-          path="/dashhh"
-          element={
-            <MainLayout>
-              <Dashboard />
-            </MainLayout>
-          }
-        />
+        
         <Route
           path="/dashboard"
           element={
@@ -138,15 +129,9 @@ const App = () => {
             </MainLayout>
           }
         />
-        {/* <Route path="/payment" element={<MainLayout><Payment /></MainLayout>} /> */}
-        {/* <Route path="/tax" element={<MainLayout><Tax /></MainLayout>} /> */}
-        {/* <Route path="/mis" element={<MainLayout><Mis /></MainLayout>} /> */}
-        {/* <Route path="/login" element={<LoginPage />} /> */}
-        {/* <Route path="/salesgraph" element={<SalesGraph />} /> */}
-        {/* <Route path="/" element={<Mainpage />} /> */}
+        
         <Route path="/branch" element={<Mainpage />} />
         <Route path="/targetsetting" element={<TargetTable />} />
-        {/* <Route path="/payment" element={<Payment />} /> */}
       </Routes>
     </Router>
   );
