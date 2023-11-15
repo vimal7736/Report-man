@@ -81,9 +81,9 @@ export default function DaySalesTable() {
   const table = useMaterialReactTable({
     columns,
     data,
-    enableColumnOrdering: false,
-    enableRowSelection: false,
-    enablePagination: false,
+    enableColumnOrdering: true,
+    enableRowSelection: true,
+    enablePagination: true,
     onRowSelectionChange: setRowSelection,
     state: { rowSelection },
     // enablePagination: true,

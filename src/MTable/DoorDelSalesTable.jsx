@@ -41,12 +41,12 @@ export default function DoorDelSalesTable() {
   const table = useMaterialReactTable({
     columns,
     data: newDataArray, // Use the new data array here
-    enableColumnOrdering: false,
-    enableRowSelection: false,
-    enablePagination: false,
+    enableColumnOrdering: true,
+    enableRowSelection: true,
+    enablePagination: true,
     onRowSelectionChange: setRowSelection,
-    // enablePagination: true,
-    // manualPagination: true,
+    enablePagination: true,
+    manualPagination: true,
     state: { rowSelection },
   });
 
