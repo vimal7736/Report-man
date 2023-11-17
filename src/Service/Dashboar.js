@@ -5,7 +5,7 @@ export const dummyData = [
       title: "Today sales",
       amount: 365.61,
       currency: "AED",
-      percentageChange: 8,
+      percentageChange: "8%",
       changeText: "than yesterday",
     },
     {
@@ -26,7 +26,7 @@ export const dummyData = [
       description: "Bills 08",
     },
     {
-      title: "Void",
+      title: "void",
       amount: "0/0",
       description: "Bills/Memos",
     },
@@ -43,7 +43,10 @@ export const dummyData = [
 
 
   export const  salesComparisonData = [
-    { category: "Dining", percentage: 30 },
+    { category: "Dining", percentage: 80 },
+    { category: "Dining", percentage: 80 },
+    { category: "Dining", percentage: 80 },
+    { category: "Dining", percentage: 80 },
   ];
 
 
@@ -81,10 +84,10 @@ export const dummyData = [
 
 export const Topproducts = [
   { name: 'Chicken sisig wi..', price: '55.5', color: 'sky-400' },
-  { name: 'Chicken sisig wi..', price: '35', color: 'amber-400' },
-  { name: 'Chicken sisig wi..', price: '29.75', color: 'orange-400' },
-  { name: 'Chicken sisig wi..', price: '29.75', color: 'rose-400' },
-  { name: 'Chicken sisig wi..', price: '29.75', color: 'fuchsia-400' },
+  { name: 'Chicken sisi wi..', price: '35', color: 'amber-400' },
+  { name: 'Chicken sis wi..', price: '29.75', color: 'orange-400' },
+  { name: 'Chicken si wi..', price: '29.75', color: 'rose-400' },
+  { name: 'Chiken sisi wi..', price: '29.75', color: 'fuchsia-400' },
 ];
 
 

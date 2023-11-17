@@ -6,6 +6,8 @@ export const dummyData = [
     { itemName: "Item 2", quantity: 3, price: 8.99 },
     { itemName: "Item 6", quantity: 3, price: 8.99 },
     { itemName: "Item 2", quantity: 3, price: 8.99 },
+    { itemName: "Item 2", quantity: 3, price: 8.99 },
+    { itemName: "Item 2", quantity: 3, price: 8.99 },
     // Add more items as needed
   ];
 

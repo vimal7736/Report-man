@@ -1,3 +1,5 @@
+
+
 .App {
   text-align: center;
 }
@@ -74,30 +76,11 @@
   width: auto;
   display: flex !important ;
 }
-.AdditionalDiv {
-  padding: 11px;
-  display: flex;
-  width: 1370px;
-  height: auto;
-  gap: 10px;
-  /* border: 1px solid #ccc; */
-}
+
 .Additionalchild {
-  width: 431px;
-  height: 190px;
-  padding: 10px 20px 10px 20px;
-  border-radius: 12px;
-  gap: 20px;
-  /* border: 1px solid #ccc; */
   background-color: #ffffff;
-  /* width: auto; */
 }
-.nested-div {
-  /* width: auto; */
-  height: auto;
-  gap: 10px;
-  
-}
+
 
 .flex-item {
   /* Styles for each flex item */
@@ -109,52 +92,34 @@
   justify-content: space-between;
 }
 .nested-div {
-  display: flex;
-  /* Styles for the nested divs inside the first child */
-  margin: 5px;
-  padding: 0px;
+  width: -webkit-fill-available;
+  height: -webkit-fill-available;
+
 }
 
 .child-div {
-  width: 138.62px;
-  height: auto;
+  height: 100px;
   padding: 0px 20px;
   border-radius: 12px;
   margin: 3px;
   background-color: #ffffff;
 }
 
-.nested-div {
-  display: flex;
-  margin: 5px;
-  padding: 0px;
-  /* background-color: #f0f0f0; */
-  width: auto;
-}
+
 
 .child-div-four-five {
-  width: 376px;
-  height: 248px;
-  padding: 0px 20px;
-  border-radius: 12px;
-  justify-content: space-between;
   background-color: #ffffff;
+
 }
 .vimal {
   width: 565px;
   height: auto;
-  /* gap: 1px; */
-  /* padding: 20px; */
   justify-content: center;
   display:flex;
-  /* border: 1px solid #ccc; */
 }
 .vimal1 {
-  /* height: 150px; */
-  /* border: 1px solid #ccc; */
   display: contents;
   width: auto;
-  /* background-color: #f8f8f8; */
   
 }
 .todays-sales {
@@ -190,7 +155,6 @@
 }
 /* dashboard.css */
 
-/* Your existing styles here */
 
 .gauge-chart-container {
   width: 120px;
@@ -228,28 +192,24 @@
   width: 300px; /* Set the width as needed */
   height: 300px; /* Set the height as needed */
 }
-.daywisecompare {
-  text-align: center;
-  background-color: white;
-  display: flex;
-  justify-content: space-between;
-  font-family: Poppins;
-  border-radius: 10px;
-  font-size: 11px;
-  font-weight: 600;
-  line-height: 24px;
-  letter-spacing: 0em;
-  height: 362px;
-  text-align: right;
 
-  
-}
 .custom-container {
   align-items: flex-start;
   display: inline-flex;
   flex-direction: column;
   height: 112px;
   position: relative;
+}
+.chartcontainer{
+
+  width: -webkit-fill-available;
+  height: -webkit-fill-available;
+}
+.salescompare{
+
+  width: -webkit-fill-available;
+  height: -webkit-fill-available;
+
 }
 
 .custom-container .custom-polygon {
@@ -301,6 +261,100 @@
 }
 
 
-/* Add other styles as needed */
+.vimal1234 {
+  background-color: var(--tw-bg-[value-of-product-color]);
+}
+
+/* Additional Tailwind CSS classes */
+.self-stretch {
+  align-self: stretch;
+}
+
+.h-2 {
+  height: 2px;
+}
+
+.rounded-tr-md {
+  border-top-right-radius: 0.375rem; /* Assuming "md" corresponds to the Tailwind size value */
+}
+
+.rounded-br-md {
+  border-bottom-right-radius: 0.375rem; /* Assuming "md" corresponds to the Tailwind size value */
+}
 
 
+@media only screen and (max-width: 700px) {
+
+
+
+
+}
+
+
+.product-background {
+  @apply h-2 rounded-tr-md rounded-br-md;
+}
+
+
+/* styles.css */
+.product-container {
+  display: inline-flex;
+  align-items: start;
+  justify-content: start;
+}
+
+.product-details {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  flex-basis: 0;
+}
+
+.product-name {
+  display: flex;
+  height: 26px;
+  padding: 1px 0;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 2.5px;
+}
+
+.product-color {
+  flex-grow: 1;
+  flex-shrink: 0;
+  flex-basis: 0;
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  gap: 2.5px;
+  width: 190px;
+}
+
+.product-background {
+  height: 2px;
+  background-color: var(--product-color); /* Set the background color dynamically */
+  border-radius: 4px;
+}
+
+.product-price {
+  padding: 1px 2.5px;
+  justify-content: center;
+  align-items: center;
+  gap: 2.5px;
+}
+
+.text-style {
+  color: #333; /* Change the color as needed */
+  font-size: 12px;
+  font-weight: bold;
+}
+.domain{
+  display: none !important;
+}
+line {
+  display: none !important;
+}
+/* .tick{
+  display: none;
+} */

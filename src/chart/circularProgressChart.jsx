@@ -22,6 +22,7 @@ class CircularChart extends Component {
               show: true,
               color: 'brown',
               fontSize: '15px',
+              text: 'branch 1', // Change series-1 to branch 1
             },
             value: {
               color: '#ccc',

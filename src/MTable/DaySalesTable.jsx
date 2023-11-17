@@ -45,7 +45,6 @@ const data = [
   },
  
   
-  // Add more items as needed
 ];
 
 
@@ -95,7 +94,7 @@ export default function DaySalesTable() {
   };
 
   return(
-<div  className='w-[600px] p-3'>
+<div  className='w-[600px] p-3 scrollbar-style'>
   <MaterialReactTable table={table} />
 
 </div>

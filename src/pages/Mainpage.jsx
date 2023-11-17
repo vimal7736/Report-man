@@ -63,7 +63,7 @@ const Mainpage = () => {
         >
           <CircularChart
             chartData={[progressPercentages[0]]}
-            chartColors={differentColors}
+            chartColors={["#33FF57"]}
           />
         </div>
 
@@ -75,7 +75,7 @@ const Mainpage = () => {
         >
           <CircularChart
             chartData={[progressPercentages[1]]}
-            chartColors={differentColors}
+            chartColors={["#FFC107"]}  
           />
         </div>
 

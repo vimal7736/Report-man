@@ -81,17 +81,36 @@ const Payment = () => {
       {/* Chart Session? */}
 
       <div className="w-[713px] h-[437px] justify-start items-end gap-[50px] inline-flex">
-        {data.map((item, index) => (
+        {/* {data.map((item, index) => ( */}
           <div className="grow shrink basis-0 h-[381px] pb-[5px] rounded-[10px] flex-col justify-start items-center gap-2.5 inline-flex">
 
-            {/* //I will replace this height and  color   ? */}
-            
-            <div className="w-[140.75px] h-[500px] relative bg-sky-500 rounded-tl-[10px] rounded-tr-[10px]" />
+            <div className="w-[140.75px] h-[500px] relative bg-amber-500 rounded-tl-[10px] rounded-tr-[10px]" />
             <div className="self-stretch text-center text-black text-[13px] font-semibold font-['Inter']">
-              {item.mode}
+              Cash
             </div>
           </div>
-        ))}
+          <div className="grow shrink basis-0 h-[381px] pb-[5px] rounded-[10px] flex-col justify-start items-center gap-2.5 inline-flex">
+
+            <div className="w-[140.75px] h-[500px] relative bg-sky-500 rounded-tl-[10px] rounded-tr-[10px]" />
+            <div className="self-stretch text-center text-black text-[13px] font-semibold font-['Inter']">
+             Google Play
+            </div>
+          </div>
+          <div className="grow shrink basis-0 h-[381px] pb-[5px] rounded-[10px] flex-col justify-start items-center gap-2.5 inline-flex">
+
+            <div className="w-[140.75px] h-[500px] relative bg-fuchsia-500 rounded-tl-[10px] rounded-tr-[10px]" />
+            <div className="self-stretch text-center text-black text-[13px] font-semibold font-['Inter']">
+              Credit Card
+            </div>
+          </div>
+          <div className="grow shrink basis-0 h-[381px] pb-[5px] rounded-[10px] flex-col justify-start items-center gap-2.5 inline-flex">
+
+            <div className="w-[140.75px] h-[500px] relative bg-yellow-500 rounded-tl-[10px] rounded-tr-[10px]" />
+            <div className="self-stretch text-center text-black text-[13px] font-semibold font-['Inter']">
+              Credit
+            </div>
+          </div>
+        {/* ))} */}
       </div>
     </div>
   );

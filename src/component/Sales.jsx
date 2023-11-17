@@ -9,18 +9,16 @@ import DaySalesTable from "../MTable/DaySalesTable";
 
 const Sales = () => {
   return (
-    <div className="flex flex-wrap gap-10 p-10 items-center">
+    <div className="flex flex-wrap p-2 items-center">
       <div>
         <div className=" text-neutral-900 text-base font-['Poppins']">
-          Day Sales
-          <DaySalesTable/>
+          <DaySales/>
         </div>
       </div>
 
       <div>
-        <div className=" text-neutral-900 text-base items-center w-[700px]  font-['Poppins']">
-          Door Delivery Sales
-          <DoorDelSalesTable />
+        <div className=" text-neutral-900 text-base items-center  font-['Poppins']">
+          <DoorDeliverySales />
         </div>
       </div>
 
