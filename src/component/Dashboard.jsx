@@ -13,7 +13,7 @@ import { App } from "../chart/DthreeLineChart";
 
 const Dashboard = () => {
   return (
-    <div>
+    <div className="pl-[90px] pt-[20px] ">
       {/* up; */}
 
       <div className="flex">
