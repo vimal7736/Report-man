@@ -2,6 +2,18 @@ import React from "react";
 import { CountTax } from "../Service/Tax";
 
 const Tax = () => {
+
+  const data = [
+    { branchName: "Door delivery", tax: "5%", count: 50, taxAmount: 193.50, excludeTax: 9.20 },
+    { branchName: "Talabat", tax: "11%", count: 19, taxAmount: 172.11, excludeTax: 8.19 },
+    { branchName: "Dining", tax: "22%", count: 11, taxAmount: 165.22, excludeTax: 9.11 },
+    { branchName: "Takeaway", tax: "44%", count: 88, taxAmount: 144.44, excludeTax: 8.88 },
+    { branchName: "Swiggy", tax: "88%", count: 77, taxAmount: 100.88, excludeTax: 7.77 },
+    { branchName: "Grand total", tax: "", count: "", taxAmount: 800.24, excludeTax: 43.32 },
+    { branchName: "Total (exclude tax)", tax: "", count: "", taxAmount: "", excludeTax: 752.56 }
+  ];
+
+
   return (
     <div className=" h-screen justify-start items-start gap-2.5 inline-flex">
       <div className="flex-wrap justify-start items-start gap-2.5 flex">
@@ -9,7 +21,7 @@ const Tax = () => {
           <div className="Frame298 w-96 h-96 flex-col justify-start items-start gap-2.5 inline-flex">
             <div className="Frame66 h-96 flex-col justify-start items-start flex">
               <div className="Frame344 self-stretch justify-start items-start inline-flex">
-                <div className="Frame53 grow shrink basis-0 h-16 px-5 py-2 bg-neutral-900 border-r border-white border-opacity-20 justify-start items-center gap-2.5 flex">
+                <div className="Frame53 grow shrink basis-0 h-16 px-[0.9rem] py-2 bg-neutral-900 border-r border-white border-opacity-20 justify-start items-center gap-2.5 flex">
                   <div className="BranchName text-stone-50 text-xs font-normal ">
                     Branch name
                   </div>
@@ -51,40 +63,8 @@ const Tax = () => {
                   </div>
                 </div>
               </div>
-              <div className="Frame72 self-stretch h-11 justify-start items-start inline-flex">
-                <div className="Frame53 w-44 self-stretch px-5 py-2 bg-stone-50 border-r border-black border-opacity-20 justify-start items-center gap-2.5 flex">
-                  <div className="Talabat w-52 text-neutral-700 text-xs font-normal ">
-                    Talabat
-                  </div>
-                </div>
-                <div className="Frame54 grow shrink basis-0 self-stretch px-5 py-2 bg-stone-50 border-r border-black border-opacity-20 justify-end items-center gap-2.5 flex">
-                  <div className="11 text-neutral-700 text-xs font-normal ">
-                    172.11
-                  </div>
-                </div>
-                <div className="Frame55 grow shrink basis-0 self-stretch px-5 py-2 bg-stone-50 justify-end items-center gap-2.5 flex">
-                  <div className="19 text-neutral-700 text-xs font-normal ">
-                    8.19
-                  </div>
-                </div>
-              </div>
-              <div className="Frame73 self-stretch h-11 justify-start items-start inline-flex">
-                <div className="Frame53 w-44 self-stretch px-5 py-2 bg-gray-200 border-r border-black border-opacity-20 justify-start items-center gap-2.5 flex">
-                  <div className="Dining w-52 text-neutral-900 text-xs font-normal ">
-                    Dining
-                  </div>
-                </div>
-                <div className="Frame54 grow shrink basis-0 self-stretch px-5 py-2 bg-gray-200 border-r border-black border-opacity-20 justify-end items-center gap-2.5 flex">
-                  <div className="22 text-neutral-900 text-xs font-normal ">
-                    165.22
-                  </div>
-                </div>
-                <div className="Frame55 grow shrink basis-0 self-stretch px-5 py-2 bg-gray-200 justify-end items-center gap-2.5 flex">
-                  <div className="11 text-neutral-900 text-xs font-normal ">
-                    9.11
-                  </div>
-                </div>
-              </div>
+             
+             
               <div className="Frame74 self-stretch h-11 justify-start items-start inline-flex">
                 <div className="Frame53 w-44 self-stretch px-5 py-2 bg-stone-50 border-r border-black border-opacity-20 justify-start items-center gap-2.5 flex">
                   <div className="Takeaway w-52 text-neutral-700 text-xs font-normal ">
@@ -116,6 +96,58 @@ const Tax = () => {
                 <div className="Frame55 grow shrink basis-0 self-stretch px-5 py-2 bg-gray-200 justify-end items-center gap-2.5 flex">
                   <div className="77 text-neutral-900 text-xs font-normal ">
                     7.77
+                  </div>
+                </div>
+              </div>
+
+              <div className="Frame74 self-stretch h-11 justify-start items-start inline-flex">
+                <div className="Frame53 w-44 self-stretch px-5 py-2 bg-stone-50 border-r border-black border-opacity-20 justify-start items-center gap-2.5 flex">
+                  <div className="Takeaway w-52 text-neutral-700 text-xs font-normal ">
+                    Takeaway
+                  </div>
+                </div>
+                <div className="Frame54 grow shrink basis-0 self-stretch px-5 py-2 bg-stone-50 border-r border-black border-opacity-20 justify-end items-center gap-2.5 flex">
+                  <div className="44 text-neutral-700 text-xs font-normal ">
+                    144.44
+                  </div>
+                </div>
+                <div className="Frame55 grow shrink basis-0 self-stretch px-5 py-2 bg-stone-50 justify-end items-center gap-2.5 flex">
+                  <div className="88 text-neutral-700 text-xs font-normal ">
+                    8.88
+                  </div>
+                </div>
+              </div>
+              <div className="Frame75 self-stretch h-11 justify-start items-start inline-flex">
+                <div className="Frame53 w-44 self-stretch px-5 py-2 bg-gray-200 border-r border-black border-opacity-20 justify-start items-center gap-2.5 flex">
+                  <div className="Swiggy w-52 text-neutral-900 text-xs font-normal ">
+                    Swiggy
+                  </div>
+                </div>
+                <div className="Frame54 grow shrink basis-0 self-stretch px-5 py-2 bg-gray-200 border-r border-black border-opacity-20 justify-end items-center gap-2.5 flex">
+                  <div className="88 text-neutral-900 text-xs font-normal ">
+                    100.88
+                  </div>
+                </div>
+                <div className="Frame55 grow shrink basis-0 self-stretch px-5 py-2 bg-gray-200 justify-end items-center gap-2.5 flex">
+                  <div className="77 text-neutral-900 text-xs font-normal ">
+                    7.77
+                  </div>
+                </div>
+              </div>
+              <div className="Frame74 self-stretch h-11 justify-start items-start inline-flex">
+                <div className="Frame53 w-44 self-stretch px-5 py-2 bg-stone-50 border-r border-black border-opacity-20 justify-start items-center gap-2.5 flex">
+                  <div className="Takeaway w-52 text-neutral-700 text-xs font-normal ">
+                    Takeaway
+                  </div>
+                </div>
+                <div className="Frame54 grow shrink basis-0 self-stretch px-5 py-2 bg-stone-50 border-r border-black border-opacity-20 justify-end items-center gap-2.5 flex">
+                  <div className="44 text-neutral-700 text-xs font-normal ">
+                    144.44
+                  </div>
+                </div>
+                <div className="Frame55 grow shrink basis-0 self-stretch px-5 py-2 bg-stone-50 justify-end items-center gap-2.5 flex">
+                  <div className="88 text-neutral-700 text-xs font-normal ">
+                    8.88
                   </div>
                 </div>
               </div>
@@ -151,7 +183,7 @@ const Tax = () => {
               </div>
             </div>
           </div>
-
+{/* chart seession? */}
           <div className="w-[713px] h-[522px] flex-col justify-start items-center inline-flex">
             <div className="self-stretch h-[437px] justify-start items-end gap-[50px] inline-flex">
               <div className="grow shrink basis-0 h-[381px] pb-[5px] rounded-[10px] flex-col justify-start items-center gap-2.5 inline-flex">

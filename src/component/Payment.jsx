@@ -17,7 +17,7 @@ const Payment = () => {
   );
 
   return (
-    <div className=" flex flex-wrap p-8 h-screen">
+    <div className=" flex flex-wrap h-screen">
       <table className=" justify-start items-start gap-2.5 flex">
         <tbody>
           <tr className="w-[353px] flex-col justify-start items-start gap-2.5 inline-flex">
