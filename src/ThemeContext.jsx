@@ -22,6 +22,7 @@ export const ThemeProvider = ({ children }) => {
     shadow: isDarkTheme ? '0px 0px 15px 0px rgba(255, 255, 255, 0.08)' : '0px 0px 20px 0px rgba(0, 0, 0, 0.08)',
     hoverTextColor: isDarkTheme ? 'black' : 'white', 
     hoverBgColor: isDarkTheme ? 'white' : 'black', 
+     tableBackgroundColor: isDarkTheme ? '#333333' : '#f2f2f2'
   };
 
   return (

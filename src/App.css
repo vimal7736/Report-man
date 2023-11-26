@@ -441,3 +441,26 @@ line {
 .rotate {
   animation: rotateAnimation 180s infinite linear;
 }
+
+/* ItemWiseGraph.css */
+
+.item-wise-graph {
+  height: 389px;
+  overflow-y: scroll;
+  scrollbar-width: thin; 
+  scrollbar-color: rgb(90, 90, 90) rgb(94, 94, 94); 
+  border-radius: 4px;
+  scroll-behavior: smooth; 
+
+  &::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+    border-radius: 20px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #747474;
+    border-radius: 20px;
+    height: 5px;
+  }
+}
