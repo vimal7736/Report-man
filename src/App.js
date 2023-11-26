@@ -1,131 +1,225 @@
 import React, { useState } from "react";
-import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
-import { createGlobalStyle, ThemeProvider } from "styled-components";
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  Link,
+  useLocation,
+} from "react-router-dom";
 import LoginPage from "./pages/LoginPage";
 import Mainpage from "./pages/Mainpage";
 import Sales from "./component/Sales";
+import { useTheme } from "./ThemeContext";
 import TargetTable from "./component/Target";
 import Payment from "./component/Payment";
 import Tax from "./component/Tax";
 import "./App.css";
-import Dashnew from "./component/Dashnew";
 import Dashboard from "./component/Dashboard";
+import ThemeLD from "./component/svg/ThemeLD";
+import Excelsvg from "./component/svg/Excelsvg";
+import DoorDelivery from "./component/DoorDelivery";
+import Vimal from "./pages/Maindash";
+import drawer from "../src/images/drawer.png";
+import Sidebar from "./component/Side";
+// import Sidebar from "./component/Side";
+// import Sidebar from "./component/Sidebar";
 
-const GlobalStyle = createGlobalStyle`
-  body {
-    background-color: ${(props) => props.theme.backgroundColor};
-    color: ${(props) => props.theme.textColor};
-    // Add other global styles as needed
-  }
-`;
-
-const lightTheme = {
-  backgroundColor: "#ffffff",
-  textColor: "#000000",
-  // Add other light theme styles as needed
-};
-
-const darkTheme = {
-  backgroundColor: "#333333",
-  textColor: "#ffffff",
-  // Add other dark theme styles as needed
-};
 const MainLayout = ({ children }) => {
+  const { theme, toggleTheme } = useTheme();
+  const location = useLocation();
+
+  const [isSideDrawerOpen, setIsSideDrawerOpen] = useState(false);
+
+  const toggleSideDrawer = () => {
+    setIsSideDrawerOpen((prev) => !prev);
+  };
+
+
   return (
-    <div >
-      {/* <div className="flex h-[80px] w-[1256px]  gap-[20px] p-[40px]">
-        <div className="flex  justify-between  h-[42px] ">
-          <div className=" w-[358px]   h-[42px] font-inter text-18 font-normal leading-22 tracking-normal text-left">
-            Branch name
-          </div>
-          <div className=" h-[38px] flex gap-[40px]  justify-between ">
-            <div className="text-black  font-normal text-[12px] w-1216 h-613 top-5283 left--4760 px-30 gap-10">
-              Dashboard
-            </div>
-            <div className="text-black  font-normal text-[12px] w-1216 h-613 top-5283 left--4760 px-30 gap-10">
-              Sales
-            </div>
-            <div className="text-black  font-normal text-[12px] w-1216 h-613 top-5283 left--4760 px-30 gap-10">
-              Payment
-            </div>
-            <div className="text-black  font-normal text-[12px] w-1216 h-613 top-5283 left--4760 px-30 gap-10">
-              Tax
-            </div>
-            <div className="text-black  font-normal text-[12px] w-1216 h-613 top-5283 left--4760 px-30 gap-10">
-              MIS
-            </div>
+    <div className="main-layout">
+      <div
+        className={`side-drawer ${
+          isSideDrawerOpen ? "" : "side-drawer-closed"
+        }`}
+      >
+        <Sidebar toggleSideDrawer={toggleSideDrawer} />
+      </div>
+      <div
+        className={`main-content ${
+          isSideDrawerOpen ? "main-layout-drawer-open" : ""
+        }`}
+      >
+        <div
+          className="bg-stone-50 pl-[30px] pr-[30px] w-auto"
+          style={{
+            backgroundColor: theme.backgroundColor,
+            color: theme.textColor,
+          }}
+        >
+          <div
+            style={{
+              backgroundColor: theme.backgroundColor,
+              color: theme.textColor,
+            }}
+            className="h-20 items-center flex flex-grow"
+          >
+            <div className="h-[42px]  items-center gap-[162px] flex flex-grow ">
+              <div className="justify-start items-center flex">
+                <div className="p-2.5 justify-center items-center gap-2.5 flex">
+                  <div className="justify-center items-center sales gap-2.5 flex"></div>
+                  <div
+                    style={{
+                      backgroundColor: theme.backgroundColor,
+                      color: theme.textColor,
+                      
+                    }}
+                    className="flex w-[150px]"
+                  >
+                    <Link to="/branch">
+                      <Excelsvg />
+                    </Link>
+                    &nbsp;&nbsp; Branch name
+                  </div>
+                </div>
+                <div className=" text-xs rounded-lg hover:bg-neutral-900 hover:text-white  "></div>
+              </div>
+              <div className="justify-start items-start gap-[35px] nav-links flex">
+                <div className="justify-center items-center gap-2.5 flex">
+                  <Link
+                    to="/dashboard"
+                    className={`p-2.5 text-xs rounded-lg ${
+                      location.pathname === "/dashboard"
+                        ? "bg-neutral-900 text-white"
+                        : "hover:bg-neutral-900 hover:text-white "
+                    } `}
+                  >
+                    Dashboard
+                  </Link>
+                </div>
 
+                <div className="justify-center sales items-center gap-2.5 flex">
+                  <Link
+                    to="/sales"
+                    className={`p-2.5 text-xs rounded-lg ${
+                      location.pathname === "/sales"
+                        ? "bg-neutral-900 text-white"
+                        : "hover:bg-neutral-900 hover:text-white "
+                    } `}
+                  >
+                    Sales
+                  </Link>
+                </div>
+
+                <div className="justify-center  sales items-center gap-2.5 flex">
+                  <Link
+                    to="/payment"
+                    className={`p-2.5 text-xs rounded-lg ${
+                      location.pathname === "/payment"
+                        ? "bg-neutral-900 text-white"
+                        : "hover:bg-neutral-900 hover:text-white "
+                    } `}
+                  >
+                    Payment
+                  </Link>
+                </div>
+
+                <div className="justify-center sales items-center gap-2.5 flex">
+                  <Link
+                    to="/tax"
+                    className={`p-2.5 text-xs rounded-lg ${
+                      location.pathname === "/tax"
+                        ? "bg-neutral-900 text-white"
+                        : "hover:bg-neutral-900 hover:text-white "
+                    } `}
+                  >
+                    Tax
+                  </Link>
+                </div>
+
+                <div className="justify-center items-center sales gap-2.5 flex">
+                  <div className="p-2.5 text-xs rounded-lg hover:bg-neutral-900 hover:text-white  ">
+                    MIS
+                  </div>
+                </div>
+                <div className="justify-center items-center sales gap-2.5 flex">
+                  <div className="p-2.5 text-xs rounded-lg hover:bg-neutral-900 hover:text-white  ">
+                    Purchase Entry
+                  </div>
+                </div>
+              </div>
+              <div className="justify-end items-center   flex">
+                <div className="self-stretch pb-0.5 opacity-0 flex-col justify-center items-center gap-2.5 inline-flex">
+                  <div className="justify-start items-center gap-2.5 inline-flex">
+                    <div className="w-10 self-stretch text-red-600 text-xs font-normal font-['Inter']">
+                      Logout
+                    </div>
+                  </div>
+                </div>
+                
+                <div className=" relative ">
+                 
+                  <div className=" h-[18px]   absolute  " />
+                  <button
+                    className=" text-black p-2 rounded-full"
+                    onClick={toggleTheme}
+                  >
+                    <ThemeLD />
+                  </button>
+                  <button
+                    className="  sideTogglee text-black  p-2 rounded-full"
+                    onClick={toggleSideDrawer}
+                  >
+                    <img width="20px" height="10px" src={drawer}  />
+                  </button>
+                </div>
+              </div>
+            </div>
           </div>
+          {/* <SideDrawer /> */}
+
+          {children}
+
+          {/* Add the media query to hide the nav-links below 800px */}
+          <style jsx>{`
+            
+
+           
+
+         
+
+            }
+          `}</style>
+          <style jsx>{`
+            .main-layout {
+            }
+
+            .side-drawer {
+              position: fixed;
+              top: 0;
+              right: 0; // Change left to right
+              height: 100vh;
+              background-color: #fff;
+              box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1); // Change the shadow side
+              z-index: 999;
+              overflow: hidden;
+              transition: transform 0.3s ease-in-out;
+            }
+          
+
+            .side-drawer-closed {
+              transform: translateX(400px);
+            }
+
+            // ... (Your existing styles remain unchanged)
+          `}</style>
         </div>
-
-        <div className="flex justify-between ml-14 gap-14">
-          <div className="grow shrink basis-10 text-neutral-900 text-[10px] font-normal font-['Inter']">
-            Export To excel
-          </div>
-          <div className="grow shrink basis-10 text-neutral-900 text-[10px] font-normal font-['Inter']">
-            Last updated time 09-Aug-2023 08:09 AM
-          </div>
-        </div>
-      </div> */}
-
-
-<div className="w-[1156px] h-20 justify-between items-center inline-flex">
-<div className="h-[42px] justify-start items-center gap-10 flex">
-<div className="justify-start items-center flex">
-<div className="w-[26px] h-[26px] relative" />
-<div className="p-2.5 justify-center items-center gap-2.5 flex">
-<div className="text-neutral-900 text-lg font-normal font-['Inter']">Branch name</div>
-</div>
-</div>
-<div className="justify-start items-start gap-[35px] flex">
-<div className="p-2.5 bg-neutral-900 rounded-lg justify-center items-center gap-2.5 flex">
-<div className="text-white text-xs font-semibold font-['Poppins']">Dashboard</div>
-</div>
-<div className="p-2.5 justify-center items-center gap-2.5 flex">
-<div className="text-black text-xs font-normal font-['Poppins']">Sales</div>
-</div>
-<div className="p-2.5 justify-center items-center gap-2.5 flex">
-<div className="text-black text-xs font-normal font-['Poppins']">Payment</div>
-</div>
-<div className="p-2.5 justify-center items-center gap-2.5 flex">
-<div className="text-black text-xs font-normal font-['Poppins']">Tax</div>
-</div>
-<div className="p-2.5 justify-center items-center gap-2.5 flex">
-<div className="text-black text-xs font-normal font-['Poppins']">MIS</div>
-</div>
-</div>
-</div>
-<div className="justify-start items-center gap-2.5 flex">
-<div className="self-stretch pb-0.5 opacity-0 flex-col justify-center items-center gap-2.5 inline-flex">
-<div className="justify-start items-center gap-2.5 inline-flex">
-<div className="w-10 self-stretch text-red-600 text-xs font-normal font-['Inter']">Logout</div>
-</div>
-</div>
-<div className="justify-start items-center flex">
-<div className="justify-start items-center flex">
-<div className="px-2.5 justify-center items-center gap-2.5 flex">
-<div className="text-neutral-900 text-[8px] font-normal font-['Inter']">Export to excel</div>
-</div>
-</div>
-<div className="flex-col justify-start items-start gap-2.5 inline-flex">
-<div className="w-4 h-[15.33px] relative">
-</div>
-</div>
-</div>
-<div className="justify-start items-center flex">
-<div className="h-[30px] pl-2.5 py-2.5 justify-center items-center gap-2.5 flex">
-<div className="grow shrink basis-0 text-neutral-900 text-[8px] font-normal font-['Inter']">Last updated time 09-Aug-2023 08:09 AM</div>
-</div>
-<div className="w-[18px] h-[18px] relative" />
-</div>
-</div>
-</div>
-      {children}
+      </div>
     </div>
   );
 };
 
 const App = () => {
+  const { theme } = useTheme();
   return (
     <Router>
       <Routes>
@@ -148,6 +242,14 @@ const App = () => {
           }
         />
         <Route
+          path="/door"
+          element={
+            <MainLayout>
+              <DoorDelivery />
+            </MainLayout>
+          }
+        />
+        <Route
           path="/payment"
           element={
             <MainLayout>
@@ -166,6 +268,7 @@ const App = () => {
 
         <Route path="/branch" element={<Mainpage />} />
         <Route path="/login" element={<LoginPage />} />
+        <Route path="/vimal" element={<Vimal />} />
         <Route path="/targetsetting" element={<TargetTable />} />
       </Routes>
     </Router>

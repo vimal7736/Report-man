@@ -60,7 +60,7 @@ const Target = () => {
           <br />
 
           <div className="overflow-hidden">
-            <table className="min-w-full border-gray-600 ">
+            {/* <table className="min-w-full border-gray-600 ">
               <thead className="bg-white border border-gray-800">
                 <tr className="bg-black text-white text-center  border border-separate border-gray-700">
                   <th
@@ -350,7 +350,294 @@ const Target = () => {
                   </td>
                 </tr>
               </tbody>
-            </table>
+            </table> */}
+            <div className="w-[1156px] h-[284px] flex-col justify-start items-start inline-flex">
+    <div className="self-stretch h-[54px] justify-start items-start inline-flex">
+        <div className="w-[127px] self-stretch px-5 py-2 bg-neutral-900 border-r border-white border-opacity-20 justify-start items-center gap-2.5 flex">
+            <div className="text-stone-50 text-[10px] font-normal font-['Inter']">Branch name</div>
+        </div>
+        <div className="grow shrink basis-0 self-stretch flex-col justify-start items-start inline-flex">
+            <div className="self-stretch grow shrink basis-0 px-5 py-2 bg-neutral-900 border-r border-b border-white border-opacity-20 justify-center items-center gap-2.5 inline-flex">
+                <div className="text-stone-50 text-[10px] font-normal font-['Inter']">Monday</div>
+            </div>
+            <div className="self-stretch grow shrink basis-0 justify-start items-start inline-flex">
+                <div className="grow shrink basis-0 self-stretch px-5 py-2 bg-neutral-900 border-r border-white border-opacity-20 justify-center items-center gap-2.5 flex">
+                    <div className="text-stone-50 text-[10px] font-normal font-['Inter']">Min target</div>
+                </div>
+                <div className="grow shrink basis-0 self-stretch px-5 py-2 bg-neutral-900 border-r border-stone-50 border-opacity-20 justify-center items-center gap-2.5 flex">
+                    <div className="text-stone-50 text-[10px] font-normal font-['Inter']">Target</div>
+                </div>
+            </div>
+        </div>
+        <div className="grow shrink basis-0 self-stretch flex-col justify-start items-start inline-flex">
+            <div className="self-stretch grow shrink basis-0 px-5 py-2 bg-neutral-900 border-r border-b border-white border-opacity-20 justify-center items-center gap-2.5 inline-flex">
+                <div className="text-stone-50 text-[10px] font-normal font-['Inter']">Tuesday</div>
+            </div>
+            <div className="self-stretch grow shrink basis-0 justify-start items-start inline-flex">
+                <div className="grow shrink basis-0 self-stretch px-5 py-2 bg-neutral-900 border-r border-white border-opacity-20 justify-center items-center gap-2.5 flex">
+                    <div className="text-stone-50 text-[10px] font-normal font-['Inter']">Min target</div>
+                </div>
+                <div className="grow shrink basis-0 self-stretch px-5 py-2 bg-neutral-900 border-r border-stone-50 border-opacity-20 justify-center items-center gap-2.5 flex">
+                    <div className="text-stone-50 text-[10px] font-normal font-['Inter']">Target</div>
+                </div>
+            </div>
+        </div>
+        <div className="grow shrink basis-0 self-stretch flex-col justify-start items-start inline-flex">
+            <div className="self-stretch grow shrink basis-0 px-5 py-2 bg-neutral-900 border-r border-b border-white border-opacity-20 justify-center items-center gap-2.5 inline-flex">
+                <div className="text-stone-50 text-[10px] font-normal font-['Inter']">Wednesday</div>
+            </div>
+            <div className="self-stretch grow shrink basis-0 justify-start items-start inline-flex">
+                <div className="grow shrink basis-0 self-stretch px-5 py-2 bg-neutral-900 border-r border-white border-opacity-20 justify-center items-center gap-2.5 flex">
+                    <div className="text-stone-50 text-[10px] font-normal font-['Inter']">Min target</div>
+                </div>
+                <div className="grow shrink basis-0 self-stretch px-5 py-2 bg-neutral-900 border-r border-stone-50 border-opacity-20 justify-center items-center gap-2.5 flex">
+                    <div className="text-stone-50 text-[10px] font-normal font-['Inter']">Target</div>
+                </div>
+            </div>
+        </div>
+        <div className="grow shrink basis-0 self-stretch flex-col justify-start items-start inline-flex">
+            <div className="self-stretch grow shrink basis-0 px-5 py-2 bg-neutral-900 border-r border-b border-white border-opacity-20 justify-center items-center gap-2.5 inline-flex">
+                <div className="text-stone-50 text-[10px] font-normal font-['Inter']">Thursday</div>
+            </div>
+            <div className="self-stretch grow shrink basis-0 justify-start items-start inline-flex">
+                <div className="grow shrink basis-0 self-stretch px-5 py-2 bg-neutral-900 border-r border-white border-opacity-20 justify-center items-center gap-2.5 flex">
+                    <div className="text-stone-50 text-[10px] font-normal font-['Inter']">Min target</div>
+                </div>
+                <div className="grow shrink basis-0 self-stretch px-5 py-2 bg-neutral-900 border-r border-stone-50 border-opacity-20 justify-center items-center gap-2.5 flex">
+                    <div className="text-stone-50 text-[10px] font-normal font-['Inter']">Target</div>
+                </div>
+            </div>
+        </div>
+        <div className="grow shrink basis-0 self-stretch flex-col justify-start items-start inline-flex">
+            <div className="self-stretch grow shrink basis-0 px-5 py-2 bg-neutral-900 border-r border-b border-white border-opacity-20 justify-center items-center gap-2.5 inline-flex">
+                <div className="text-stone-50 text-[10px] font-normal font-['Inter']">Friday</div>
+            </div>
+            <div className="self-stretch grow shrink basis-0 justify-start items-start inline-flex">
+                <div className="grow shrink basis-0 self-stretch px-5 py-2 bg-neutral-900 border-r border-white border-opacity-20 justify-center items-center gap-2.5 flex">
+                    <div className="text-stone-50 text-[10px] font-normal font-['Inter']">Min target</div>
+                </div>
+                <div className="grow shrink basis-0 self-stretch px-5 py-2 bg-neutral-900 border-r border-stone-50 border-opacity-20 justify-center items-center gap-2.5 flex">
+                    <div className="text-stone-50 text-[10px] font-normal font-['Inter']">Target</div>
+                </div>
+            </div>
+        </div>
+        <div className="grow shrink basis-0 self-stretch flex-col justify-start items-start inline-flex">
+            <div className="self-stretch grow shrink basis-0 px-5 py-2 bg-neutral-900 border-r border-b border-black border-opacity-20 justify-center items-center gap-2.5 inline-flex">
+                <div className="text-stone-50 text-[10px] font-normal font-['Inter']">Saturday</div>
+            </div>
+            <div className="self-stretch grow shrink basis-0 justify-start items-start inline-flex">
+                <div className="grow shrink basis-0 self-stretch px-5 py-2 bg-neutral-900 border-r border-white border-opacity-20 justify-center items-center gap-2.5 flex">
+                    <div className="text-stone-50 text-[10px] font-normal font-['Inter']">Min target</div>
+                </div>
+                <div className="grow shrink basis-0 self-stretch px-5 py-2 bg-neutral-900 border-r border-stone-50 border-opacity-20 justify-center items-center gap-2.5 flex">
+                    <div className="text-stone-50 text-[10px] font-normal font-['Inter']">Target</div>
+                </div>
+            </div>
+        </div>
+        <div className="grow shrink basis-0 self-stretch flex-col justify-start items-start inline-flex">
+            <div className="self-stretch grow shrink basis-0 px-5 py-2 bg-neutral-900 border-b border-white border-opacity-20 justify-center items-center gap-2.5 inline-flex">
+                <div className="text-stone-50 text-[10px] font-normal font-['Inter']">Sunday</div>
+            </div>
+            <div className="self-stretch grow shrink basis-0 justify-start items-start inline-flex">
+                <div className="grow shrink basis-0 self-stretch px-5 py-2 bg-neutral-900 border-r border-white border-opacity-20 justify-center items-center gap-2.5 flex">
+                    <div className="text-stone-50 text-[10px] font-normal font-['Inter']">Min target</div>
+                </div>
+                <div className="grow shrink basis-0 self-stretch px-5 py-2 bg-neutral-900 justify-center items-center gap-2.5 flex">
+                    <div className="text-stone-50 text-[10px] font-normal font-['Inter']">Target</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div className="self-stretch h-[46px] justify-start items-start inline-flex">
+        <div className="w-[127px] self-stretch px-5 py-2 bg-stone-50 border-l border-r border-b border-black border-opacity-20 justify-start items-center gap-2.5 flex">
+            <div className="text-neutral-700 text-[10px] font-normal font-['Inter']">Special beef bulalo</div>
+        </div>
+        <div className="grow shrink basis-0 self-stretch px-1 py-2 bg-stone-50 border-r border-b border-black border-opacity-20 justify-center items-center gap-2.5 flex">
+            <div className="grow shrink basis-0 text-center text-neutral-700 text-[10px] font-normal font-['Inter']">300</div>
+        </div>
+        <div className="grow shrink basis-0 self-stretch px-1 py-2 bg-stone-50 border-r border-b border-black border-opacity-20 justify-center items-center gap-2.5 flex">
+            <div className="grow shrink basis-0 text-center text-neutral-700 text-[10px] font-normal font-['Inter']">1000</div>
+        </div>
+        <div className="grow shrink basis-0 self-stretch px-1 py-2 bg-gray-200 border-r border-b border-black border-opacity-20 justify-center items-center gap-2.5 flex">
+            <div className="grow shrink basis-0 text-center text-neutral-700 text-[10px] font-normal font-['Inter']">300</div>
+        </div>
+        <div className="grow shrink basis-0 self-stretch px-1 py-2 bg-gray-200 border-r border-b border-black border-opacity-20 justify-center items-center gap-2.5 flex">
+            <div className="grow shrink basis-0 text-center text-neutral-700 text-[10px] font-normal font-['Inter']">1000</div>
+        </div>
+        <div className="grow shrink basis-0 self-stretch px-1 py-2 bg-stone-50 border-r border-b border-black border-opacity-20 justify-center items-center gap-2.5 flex">
+            <div className="grow shrink basis-0 text-center text-neutral-700 text-[10px] font-normal font-['Inter']">300</div>
+        </div>
+        <div className="grow shrink basis-0 self-stretch px-1 py-2 bg-stone-50 border-r border-b border-black border-opacity-20 justify-center items-center gap-2.5 flex">
+            <div className="grow shrink basis-0 text-center text-neutral-700 text-[10px] font-normal font-['Inter']">1000</div>
+        </div>
+        <div className="grow shrink basis-0 self-stretch px-1 py-2 bg-gray-200 border-r border-b border-black border-opacity-20 justify-center items-center gap-2.5 flex">
+            <div className="grow shrink basis-0 text-center text-neutral-700 text-[10px] font-normal font-['Inter']">300</div>
+        </div>
+        <div className="grow shrink basis-0 self-stretch px-1 py-2 bg-gray-200 border-r border-b border-black border-opacity-20 justify-center items-center gap-2.5 flex">
+            <div className="grow shrink basis-0 text-center text-neutral-700 text-[10px] font-normal font-['Inter']">1000</div>
+        </div>
+        <div className="grow shrink basis-0 self-stretch px-1 py-2 bg-stone-50 border-r border-b border-black border-opacity-20 justify-center items-center gap-2.5 flex">
+            <div className="grow shrink basis-0 text-center text-neutral-700 text-[10px] font-normal font-['Inter']">300</div>
+        </div>
+        <div className="grow shrink basis-0 self-stretch px-1 py-2 bg-stone-50 border-r border-b border-black border-opacity-20 justify-center items-center gap-2.5 flex">
+            <div className="grow shrink basis-0 text-center text-neutral-700 text-[10px] font-normal font-['Inter']">1000</div>
+        </div>
+        <div className="grow shrink basis-0 self-stretch px-1 py-2 bg-gray-200 border-r border-b border-black border-opacity-20 justify-center items-center gap-2.5 flex">
+            <div className="grow shrink basis-0 text-center text-neutral-700 text-[10px] font-normal font-['Inter']">300</div>
+        </div>
+        <div className="grow shrink basis-0 self-stretch px-1 py-2 bg-gray-200 border-r border-b border-black border-opacity-20 justify-center items-center gap-2.5 flex">
+            <div className="grow shrink basis-0 text-center text-neutral-700 text-[10px] font-normal font-['Inter']">1000</div>
+        </div>
+        <div className="grow shrink basis-0 self-stretch px-1 py-2 bg-stone-50 border-r border-b border-black border-opacity-20 justify-center items-center gap-2.5 flex">
+            <div className="grow shrink basis-0 text-center text-neutral-700 text-[10px] font-normal font-['Inter']">300</div>
+        </div>
+        <div className="grow shrink basis-0 self-stretch px-1 py-2 bg-stone-50 border-r border-b border-black border-opacity-20 justify-center items-center gap-2.5 flex">
+            <div className="grow shrink basis-0 text-center text-neutral-700 text-[10px] font-normal font-['Inter']">1000</div>
+        </div>
+    </div>
+    <div className="self-stretch h-[46px] justify-start items-start inline-flex">
+        <div className="w-[127px] self-stretch px-5 py-2 bg-stone-50 border-l border-r border-b border-black border-opacity-20 justify-start items-center gap-2.5 flex">
+            <div className="text-neutral-700 text-[10px] font-normal font-['Inter']">Special beef bulalo</div>
+        </div>
+        <div className="grow shrink basis-0 self-stretch px-1 py-2 bg-stone-50 border-r border-b border-black border-opacity-20 justify-center items-center gap-2.5 flex">
+            <div className="grow shrink basis-0 text-center text-neutral-700 text-[10px] font-normal font-['Inter']">300</div>
+        </div>
+        <div className="grow shrink basis-0 self-stretch px-1 py-2 bg-stone-50 border-r border-b border-black border-opacity-20 justify-center items-center gap-2.5 flex">
+            <div className="grow shrink basis-0 text-center text-neutral-700 text-[10px] font-normal font-['Inter']">1000</div>
+        </div>
+        <div className="grow shrink basis-0 self-stretch px-1 py-2 bg-gray-200 border-r border-b border-black border-opacity-20 justify-center items-center gap-2.5 flex">
+            <div className="grow shrink basis-0 text-center text-neutral-700 text-[10px] font-normal font-['Inter']">300</div>
+        </div>
+        <div className="grow shrink basis-0 self-stretch px-1 py-2 bg-gray-200 border-r border-b border-black border-opacity-20 justify-center items-center gap-2.5 flex">
+            <div className="grow shrink basis-0 text-center text-neutral-700 text-[10px] font-normal font-['Inter']">1000</div>
+        </div>
+        <div className="grow shrink basis-0 self-stretch px-1 py-2 bg-stone-50 border-r border-b border-black border-opacity-20 justify-center items-center gap-2.5 flex">
+            <div className="grow shrink basis-0 text-center text-neutral-700 text-[10px] font-normal font-['Inter']">300</div>
+        </div>
+        <div className="grow shrink basis-0 self-stretch px-1 py-2 bg-stone-50 border-r border-b border-black border-opacity-20 justify-center items-center gap-2.5 flex">
+            <div className="grow shrink basis-0 text-center text-neutral-700 text-[10px] font-normal font-['Inter']">1000</div>
+        </div>
+        <div className="grow shrink basis-0 self-stretch px-1 py-2 bg-gray-200 border-r border-b border-black border-opacity-20 justify-center items-center gap-2.5 flex">
+            <div className="grow shrink basis-0 text-center text-neutral-700 text-[10px] font-normal font-['Inter']">300</div>
+        </div>
+        <div className="grow shrink basis-0 self-stretch px-1 py-2 bg-gray-200 border-r border-b border-black border-opacity-20 justify-center items-center gap-2.5 flex">
+            <div className="grow shrink basis-0 text-center text-neutral-700 text-[10px] font-normal font-['Inter']">1000</div>
+        </div>
+        <div className="grow shrink basis-0 self-stretch px-1 py-2 bg-stone-50 border-r border-b border-black border-opacity-20 justify-center items-center gap-2.5 flex">
+            <div className="grow shrink basis-0 text-center text-neutral-700 text-[10px] font-normal font-['Inter']">300</div>
+        </div>
+        <div className="grow shrink basis-0 self-stretch px-1 py-2 bg-stone-50 border-r border-b border-black border-opacity-20 justify-center items-center gap-2.5 flex">
+            <div className="grow shrink basis-0 text-center text-neutral-700 text-[10px] font-normal font-['Inter']">1000</div>
+        </div>
+        <div className="grow shrink basis-0 self-stretch px-1 py-2 bg-gray-200 border-r border-b border-black border-opacity-20 justify-center items-center gap-2.5 flex">
+            <div className="grow shrink basis-0 text-center text-neutral-700 text-[10px] font-normal font-['Inter']">300</div>
+        </div>
+        <div className="grow shrink basis-0 self-stretch px-1 py-2 bg-gray-200 border-r border-b border-black border-opacity-20 justify-center items-center gap-2.5 flex">
+            <div className="grow shrink basis-0 text-center text-neutral-700 text-[10px] font-normal font-['Inter']">1000</div>
+        </div>
+        <div className="grow shrink basis-0 self-stretch px-1 py-2 bg-stone-50 border-r border-b border-black border-opacity-20 justify-center items-center gap-2.5 flex">
+            <div className="grow shrink basis-0 text-center text-neutral-700 text-[10px] font-normal font-['Inter']">300</div>
+        </div>
+        <div className="grow shrink basis-0 self-stretch px-1 py-2 bg-stone-50 border-r border-b border-black border-opacity-20 justify-center items-center gap-2.5 flex">
+            <div className="grow shrink basis-0 text-center text-neutral-700 text-[10px] font-normal font-['Inter']">1000</div>
+        </div>
+    </div>
+    <div className="self-stretch h-[46px] justify-start items-start inline-flex">
+        <div className="w-[127px] self-stretch px-5 py-2 bg-stone-50 border-l border-r border-b border-black border-opacity-20 justify-start items-center gap-2.5 flex">
+            <div className="text-neutral-700 text-[10px] font-normal font-['Inter']">Special beef bulalo</div>
+        </div>
+        <div className="grow shrink basis-0 self-stretch px-1 py-2 bg-stone-50 border-r border-b border-black border-opacity-20 justify-center items-center gap-2.5 flex">
+            <div className="grow shrink basis-0 text-center text-neutral-700 text-[10px] font-normal font-['Inter']">300</div>
+        </div>
+        <div className="grow shrink basis-0 self-stretch px-1 py-2 bg-stone-50 border-r border-b border-black border-opacity-20 justify-center items-center gap-2.5 flex">
+            <div className="grow shrink basis-0 text-center text-neutral-700 text-[10px] font-normal font-['Inter']">1000</div>
+        </div>
+        <div className="grow shrink basis-0 self-stretch px-1 py-2 bg-gray-200 border-r border-b border-black border-opacity-20 justify-center items-center gap-2.5 flex">
+            <div className="grow shrink basis-0 text-center text-neutral-700 text-[10px] font-normal font-['Inter']">300</div>
+        </div>
+        <div className="grow shrink basis-0 self-stretch px-1 py-2 bg-gray-200 border-r border-b border-black border-opacity-20 justify-center items-center gap-2.5 flex">
+            <div className="grow shrink basis-0 text-center text-neutral-700 text-[10px] font-normal font-['Inter']">1000</div>
+        </div>
+        <div className="grow shrink basis-0 self-stretch px-1 py-2 bg-stone-50 border-r border-b border-black border-opacity-20 justify-center items-center gap-2.5 flex">
+            <div className="grow shrink basis-0 text-center text-neutral-700 text-[10px] font-normal font-['Inter']">300</div>
+        </div>
+        <div className="grow shrink basis-0 self-stretch px-1 py-2 bg-stone-50 border-r border-b border-black border-opacity-20 justify-center items-center gap-2.5 flex">
+            <div className="grow shrink basis-0 text-center text-neutral-700 text-[10px] font-normal font-['Inter']">1000</div>
+        </div>
+        <div className="grow shrink basis-0 self-stretch px-1 py-2 bg-gray-200 border-r border-b border-black border-opacity-20 justify-center items-center gap-2.5 flex">
+            <div className="grow shrink basis-0 text-center text-neutral-700 text-[10px] font-normal font-['Inter']">300</div>
+        </div>
+        <div className="grow shrink basis-0 self-stretch px-1 py-2 bg-gray-200 border-r border-b border-black border-opacity-20 justify-center items-center gap-2.5 flex">
+            <div className="grow shrink basis-0 text-center text-neutral-700 text-[10px] font-normal font-['Inter']">1000</div>
+        </div>
+        <div className="grow shrink basis-0 self-stretch px-1 py-2 bg-stone-50 border-r border-b border-black border-opacity-20 justify-center items-center gap-2.5 flex">
+            <div className="grow shrink basis-0 text-center text-neutral-700 text-[10px] font-normal font-['Inter']">300</div>
+        </div>
+        <div className="grow shrink basis-0 self-stretch px-1 py-2 bg-stone-50 border-r border-b border-black border-opacity-20 justify-center items-center gap-2.5 flex">
+            <div className="grow shrink basis-0 text-center text-neutral-700 text-[10px] font-normal font-['Inter']">1000</div>
+        </div>
+        <div className="grow shrink basis-0 self-stretch px-1 py-2 bg-gray-200 border-r border-b border-black border-opacity-20 justify-center items-center gap-2.5 flex">
+            <div className="grow shrink basis-0 text-center text-neutral-700 text-[10px] font-normal font-['Inter']">300</div>
+        </div>
+        <div className="grow shrink basis-0 self-stretch px-1 py-2 bg-gray-200 border-r border-b border-black border-opacity-20 justify-center items-center gap-2.5 flex">
+            <div className="grow shrink basis-0 text-center text-neutral-700 text-[10px] font-normal font-['Inter']">1000</div>
+        </div>
+        <div className="grow shrink basis-0 self-stretch px-1 py-2 bg-stone-50 border-r border-b border-black border-opacity-20 justify-center items-center gap-2.5 flex">
+            <div className="grow shrink basis-0 text-center text-neutral-700 text-[10px] font-normal font-['Inter']">300</div>
+        </div>
+        <div className="grow shrink basis-0 self-stretch px-1 py-2 bg-stone-50 border-r border-b border-black border-opacity-20 justify-center items-center gap-2.5 flex">
+            <div className="grow shrink basis-0 text-center text-neutral-700 text-[10px] font-normal font-['Inter']">1000</div>
+        </div>
+    </div>
+    <div className="self-stretch h-[46px] justify-start items-start inline-flex">
+        <div className="w-[127px] self-stretch px-5 py-2 bg-stone-50 border-l border-r border-b border-black border-opacity-20 justify-start items-center gap-2.5 flex">
+            <div className="text-neutral-700 text-[10px] font-normal font-['Inter']">Special beef bulalo</div>
+        </div>
+        <div className="grow shrink basis-0 self-stretch px-1 py-2 bg-stone-50 border-r border-b border-black border-opacity-20 justify-center items-center gap-2.5 flex">
+            <div className="grow shrink basis-0 text-center text-neutral-700 text-[10px] font-normal font-['Inter']">300</div>
+        </div>
+        <div className="grow shrink basis-0 self-stretch px-1 py-2 bg-stone-50 border-r border-b border-black border-opacity-20 justify-center items-center gap-2.5 flex">
+            <div className="grow shrink basis-0 text-center text-neutral-700 text-[10px] font-normal font-['Inter']">1000</div>
+        </div>
+        <div className="grow shrink basis-0 self-stretch px-1 py-2 bg-gray-200 border-r border-b border-black border-opacity-20 justify-center items-center gap-2.5 flex">
+            <div className="grow shrink basis-0 text-center text-neutral-700 text-[10px] font-normal font-['Inter']">300</div>
+        </div>
+        <div className="grow shrink basis-0 self-stretch px-1 py-2 bg-gray-200 border-r border-b border-black border-opacity-20 justify-center items-center gap-2.5 flex">
+            <div className="grow shrink basis-0 text-center text-neutral-700 text-[10px] font-normal font-['Inter']">1000</div>
+        </div>
+        <div className="grow shrink basis-0 self-stretch px-1 py-2 bg-stone-50 border-r border-b border-black border-opacity-20 justify-center items-center gap-2.5 flex">
+            <div className="grow shrink basis-0 text-center text-neutral-700 text-[10px] font-normal font-['Inter']">300</div>
+        </div>
+        <div className="grow shrink basis-0 self-stretch px-1 py-2 bg-stone-50 border-r border-b border-black border-opacity-20 justify-center items-center gap-2.5 flex">
+            <div className="grow shrink basis-0 text-center text-neutral-700 text-[10px] font-normal font-['Inter']">1000</div>
+        </div>
+        <div className="grow shrink basis-0 self-stretch px-1 py-2 bg-gray-200 border-r border-b border-black border-opacity-20 justify-center items-center gap-2.5 flex">
+            <div className="grow shrink basis-0 text-center text-neutral-700 text-[10px] font-normal font-['Inter']">300</div>
+        </div>
+        <div className="grow shrink basis-0 self-stretch px-1 py-2 bg-gray-200 border-r border-b border-black border-opacity-20 justify-center items-center gap-2.5 flex">
+            <div className="grow shrink basis-0 text-center text-neutral-700 text-[10px] font-normal font-['Inter']">1000</div>
+        </div>
+        <div className="grow shrink basis-0 self-stretch px-1 py-2 bg-stone-50 border-r border-b border-black border-opacity-20 justify-center items-center gap-2.5 flex">
+            <div className="grow shrink basis-0 text-center text-neutral-700 text-[10px] font-normal font-['Inter']">300</div>
+        </div>
+        <div className="grow shrink basis-0 self-stretch px-1 py-2 bg-stone-50 border-r border-b border-black border-opacity-20 justify-center items-center gap-2.5 flex">
+            <div className="grow shrink basis-0 text-center text-neutral-700 text-[10px] font-normal font-['Inter']">1000</div>
+        </div>
+        <div className="grow shrink basis-0 self-stretch px-1 py-2 bg-gray-200 border-r border-b border-black border-opacity-20 justify-center items-center gap-2.5 flex">
+            <div className="grow shrink basis-0 text-center text-neutral-700 text-[10px] font-normal font-['Inter']">300</div>
+        </div>
+        <div className="grow shrink basis-0 self-stretch px-1 py-2 bg-gray-200 border-r border-b border-black border-opacity-20 justify-center items-center gap-2.5 flex">
+            <div className="grow shrink basis-0 text-center text-neutral-700 text-[10px] font-normal font-['Inter']">1000</div>
+        </div>
+        <div className="grow shrink basis-0 self-stretch px-1 py-2 bg-stone-50 border-r border-b border-black border-opacity-20 justify-center items-center gap-2.5 flex">
+            <div className="grow shrink basis-0 text-center text-neutral-700 text-[10px] font-normal font-['Inter']">300</div>
+        </div>
+        <div className="grow shrink basis-0 self-stretch px-1 py-2 bg-stone-50 border-r border-b border-black border-opacity-20 justify-center items-center gap-2.5 flex">
+            <div className="grow shrink basis-0 text-center text-neutral-700 text-[10px] font-normal font-['Inter']">1000</div>
+        </div>
+    </div>
+   
+</div>
           </div>
         </div>
       </div>

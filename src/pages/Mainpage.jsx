@@ -1,96 +1,121 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import CircularChart from "../chart/circularProgressChart";
+import ThemeLD from "../component/svg/ThemeLD";
+import { useTheme } from "../ThemeContext";
+import ProgressBarr from "../chart/ProgressBarr";
+
+const progressBarsData = [
+  {
+    strokeColor: "#1DFF19",
+    filterColor: "#1DFF19",
+    textColor: "#1DFF19",
+    branchName: "Branch 1",
+    belowTargetText: "100% target completed",
+    earningsText: "Earnings Today ",
+    value: 1233.88,
+    progressBarStrokeOffset: "709",
+  },
+  {
+    strokeColor: "#1DFF19",
+    filterColor: "#1DFF19",
+    textColor: "#1DFF19",
+    branchName: "Branch 2",
+    belowTargetText: "75% Target Completed",
+    earningsText: "Earnings Today ",
+    value: 1000.22,
+    progressBarStrokeOffset: "580",
+  },
+  {
+    strokeColor: "#FFE60A",
+    filterColor: "#FFE60A",
+    textColor: "#1DFF19",
+    branchName: "Branch 3",
+    belowTargetText: "66% Target Completed",
+    earningsText: "Earnings Today ",
+    value: 789.56,
+    progressBarStrokeOffset: "500",
+  },
+  {
+    strokeColor: "#FF1A1A",
+    filterColor: "#FF1A1A",
+    textColor: "#1DFF19",
+    branchName: "Branch 4",
+    belowTargetText: "Below Minimum Target 4",
+    earningsText: "Earnings Today ",
+    value: 500,
+    progressBarStrokeOffset: "400",
+  },
+];
 
 const Mainpage = () => {
-  const calculateCircleColors = (percentage) => {
-    if (percentage >= 75) {
-      return {
-        // backgroundColor: "", // Green for 75% and above
-        borderColor: "border-green-700 shadow rounded-lg",
-        chartColors: 'green'
-      };
-    } else if (percentage >= 50) {
-      return {
-        // backgroundColor: "bg-yellow-500", // Yellow for 50-74%
-        borderColor: "border-yellow-700 shadow rounded-lg",
-        chartColors: 'yellow'
-      };
-    } else {
-      return {
-        // backgroundColor: "bg-red-500", // Red for less than 50%
-        borderColor: "border-red-700 shadow rounded-lg",
-        chartColors: 'red'
-      };
-    }
-  };
-  
-  const differentColors = ["#FF5733", "#33FF57", "#5733FF"];
-  const progressPercentages = [95, 60, 30]; // Add percentages for the three additional charts
+  const { theme, toggleTheme } = useTheme();
 
   return (
     <div>
-      <div className="bg-white w-screen h-[76px] p-5 text-black flex justify-between items-center">
-        <div className="flex justify-between">
-          <div className="text-2xl font-thin w-[798px] text-left">
-            <span className="font-inter text-base">Restausrant Name</span>
+      <div
+        style={{
+          backgroundColor: theme.backgroundColor,
+          color: theme.textColor,
+          boxShadow: theme.shadow,
+        }}
+        className="h-screen "
+      >
+        <div className="h-[42px] gap-3  pl-4 pt-10 pr-16 flex justify-between">
+          <div className="justify-start items-center flex">
+            <div class="Frame199 w-96 h-10 justify-start items-center gap-10 inline-flex">
+              <div class="Frame190 justify-start items-center flex">
+                <div class="Frame189  absolute ml-10 p-2.5 justify-center items-center gap-2.5 flex">
+                  <div class="RestaurantName   text-base font-normal">
+                    Restaurant name
+                  </div>
+                </div>
+              </div>
+              <div class="Frame295 absolute ml-[290px] justify-center items-center flex ">
+                <div
+                  className={`Frame293 px-5 py-3 rounded-md justify-center items-center gap-2.5 flex hover:bg-${theme.hoverBgColor} hover:font-bold hover:text-${theme.hoverTextColor}`}
+                >
+                  <div class="Today  text-xs font-bold, ">Today</div>
+                </div>
+                <div
+                  className={`Frame293 px-2.5 py-3 rounded-md justify-center items-center gap-2.5 flex hover:bg-${theme.hoverBgColor} hover:font-bold hover:text-${theme.hoverTextColor}`}
+                >
+                  <div class="Yesterday  text-xs ">Yesterday</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="justify-start items-center gap-[15px] flex">
+            <div className="justify-start items-center flex">
+              <div className="h-[30px] pl-2.5 py-2.5 justify-center items-center gap-2.5 flex">
+                <div className="grow shrink basis-0  text-[9px] font-normal">
+                  Last updated time 09-Aug-2023 08:09 AM
+                </div>
+              </div>
+              <div className="w-[18px] h-[18px] relative" />
+            </div>
+            <div className="self-stretch pb-0.5 flex-col justify-center items-center gap-2.5 inline-flex">
+              <Link
+                to="/login"
+                className="justify-start items-center gap-2.5 inline-flex"
+              >
+                <div className="w-10 self-stretch text-red-600 text-xs font-normal">
+                  Logout
+                </div>
+              </Link>
+            </div>
+            <div onClick={toggleTheme}>
+              <ThemeLD />
+            </div>
           </div>
         </div>
-        <div className="flex items-center space-x-4">
-          <button className="p-1.75">
-            <i className="fas fa-sync-alt"></i> Refresh
-          </button>
-
-          <span className="text-xs font-normal leading-10">
-            Last Updated: 09-Aug-2023 08:09 AM *
-          </span>
-
-          <button className="text-sm font-normal leading-15 text-red-600">
-            Logout
-          </button>
-          <button>{/* <i className="fas fa-adjust"></i> Theme */}</button>
-        </div>
+        <Link to="/dashboard" className="rounded-xl justify-center">
+          <div className="flex flex-wrap  gap-3 p-[3rem]  justify-evenly">
+            {progressBarsData.map((data, index) => (
+              <ProgressBarr key={index} {...data} />
+            ))}
+          </div>
+        </Link>
       </div>
-      <Link
-        to="/dashboard"
-        className="flex flex-wrap gap-11 h-250 p-32 justify-center relative "
-      >
-        {/* First CircularChart */}
-        <div
-          className={`circle ${
-            calculateCircleColors(progressPercentages[0]).backgroundColor
-          } ${calculateCircleColors(progressPercentages[0]).borderColor}`}
-        >
-          <CircularChart
-            chartData={[progressPercentages[0]]}
-            chartColors={["#33FF57"]}
-          />
-        </div>
-
-        {/* Second CircularChart */}
-        <div
-          className={`circle ${
-            calculateCircleColors(progressPercentages[1]).backgroundColor
-          } ${calculateCircleColors(progressPercentages[1]).borderColor}`}
-        >
-          <CircularChart
-            chartData={[progressPercentages[1]]}
-            chartColors={["#FFC107"]}  
-          />
-        </div>
-
-        {/* Third CircularChart */}
-        <div
-          className={`circle ${
-            calculateCircleColors(progressPercentages[2]).backgroundColor
-          } ${calculateCircleColors(progressPercentages[2]).borderColor}`}
-        >
-          <CircularChart
-            chartData={[progressPercentages[2]]}
-            chartColors={differentColors}
-          />
-        </div>
-      </Link>
     </div>
   );
 };

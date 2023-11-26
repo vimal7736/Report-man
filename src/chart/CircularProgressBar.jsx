@@ -6,7 +6,7 @@ const CircularProgressBar = ({ percentage }) => {
 
   return (
     <div>
-      <div className="w-[281.50px] h-[250px] p-5 bg-stone-50 rounded-xl shadow flex-col justify-between items-center inline-flex">
+      <div className="w-[281.50px] h-[250px] p-5  rounded-xl shadow flex-col justify-between items-center inline-flex">
         <div className="text-neutral-900 text-[10px] font-semibold font-['Poppins']">
           Target 1000 AED
         </div>
@@ -50,7 +50,7 @@ const CircularProgressBar = ({ percentage }) => {
           25% More earnings today
         </div>
         <div className="text-poppins text-24 font-semibold leading-36">
-          1250.88
+          xxx
         </div>
       </div>
       

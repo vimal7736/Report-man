@@ -1,0 +1,48 @@
+/* Sidebar.css */
+.sidebar {
+  width: 300px;
+  max-width: 750px; 
+  height: 100vh;
+  background-color: #222;
+  color: #fff;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  z-index: 999;
+ 
+}
+
+.logo {
+  font-size: 16px; /* Adjust the font size for mobile */
+  font-weight: bold;
+  margin-bottom: 0px;
+}
+
+.title {
+  font-size: 20px; /* Adjust the font size for mobile */
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  padding: 10px;
+  border-bottom: 1px solid #444;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-size: 14px; /* Adjust the font size for mobile */
+}
+
+li:hover {
+  background-color: #555;
+}
+
+li.active {
+  background-color: #333;
+  border-left: 3px solid #fff; /* You can customize the border style */
+}

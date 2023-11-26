@@ -4,6 +4,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import Loading from './Loading/Loading';
+import { ThemeProvider } from './ThemeContext';
 
 const Root = () => {
   const [loading, setLoading] = useState(true);
@@ -22,7 +23,10 @@ const Root = () => {
 
   return (
     <React.StrictMode>
+       <ThemeProvider>
+
       <App />
+       </ThemeProvider>
     </React.StrictMode>
   );
 };

@@ -349,7 +349,7 @@
   font-size: 12px;
   font-weight: bold;
 }
-.domain{
+.dop{
   display: none !important;
 }
 line {
@@ -358,3 +358,86 @@ line {
 /* .tick{
   display: none;
 } */
+
+.border-r {
+  /* border-right-width: 0px !important; */
+}
+
+/* In your CSS file */
+
+.slick-prev:before{
+  display: none !important;
+}
+.slick-next:before, .slick-prev:before {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #fff;
+  font-family: slick;
+  font-size: 20px !important;
+  line-height: 1;
+  opacity: .75;
+}
+.tooltip {
+  width: 70px;
+  height: 20px;
+  position: absolute;
+  top: 45px; /* Adjust as needed */
+  left: 30px;
+  transform: translateX(-50%);
+  background-color: #010101;
+  color: #fff;
+  padding: 5px;
+  border-radius: 10px;
+  font-size: 8px;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.relative:hover .tooltip {
+  opacity: 1;
+}
+
+@media screen and (min-width: 1200px) {
+  .side-drawer {
+    
+    display: none; 
+  }
+
+  .tooltip-trigger:hover + .tooltip {
+    display: block; /* Display the tooltip when hovering on the trigger */
+  }
+  .sideTogglee{
+    display: none; 
+  }
+}
+@media screen and (max-width: 1200px) {
+  .nav-links {
+    display: none; /* Hide the tooltip by default on smaller screens */
+  }
+
+  .tooltip-trigger:hover + .tooltip {
+    display: block; /* Display the tooltip when hovering on the trigger */
+  }
+}
+.side-drawer{
+}
+
+
+.rotate-45 {
+  transform: rotate(45deg) !important;
+}
+
+
+
+@keyframes rotateAnimation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.rotate {
+  animation: rotateAnimation 180s infinite linear;
+}

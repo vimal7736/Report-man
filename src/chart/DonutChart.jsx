@@ -36,7 +36,7 @@ export function DChart() {
       arc: {
         borderWidth: 10,
         borderColor: 'rgba(255,255,255,0.5)',
-        borderRadius: 9,
+        borderRadius: 5,
       },
     },
     tooltips: {

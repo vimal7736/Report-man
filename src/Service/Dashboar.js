@@ -23,7 +23,7 @@ export const dummyData = [
     {
       title: "Bills & Pax",
       amount: "11/25",
-      description: "Bills 08",
+      // description: "Bills 08",
     },
     {
       title: "void",
