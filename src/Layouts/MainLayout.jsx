@@ -123,11 +123,7 @@ import drawer from "../../src/images/drawer.png";
                       MIS
                     </div>
                   </div>
-                  <div className="justify-center items-center sales gap-2.5 flex">
-                    <div className="p-2.5 text-xs rounded-lg hover:bg-neutral-900 hover:text-white  ">
-                      Purchase Entry
-                    </div>
-                  </div>
+                  
                 </div>
                 <div className="justify-end items-center   flex">
                   <div className="self-stretch pb-0.5 opacity-0 flex-col justify-center items-center gap-2.5 inline-flex">

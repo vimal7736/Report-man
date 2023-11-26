@@ -10,7 +10,7 @@ const SalesTab = ({ selectedTab, onTabClick }) => {
           <div className="Frame194 justify-center items-center gap-2.5 flex">
             <div
               className={`DaySummery w-[100px] text-xs font-normal font-['Poppins'] p-2 rounded cursor-pointer ${
-                activeTab === "DaySummery" ? "bg-gray-300" : "hover:bg-gray-200"
+                activeTab === "DaySummery" ? "" : ""
               }`}
               onClick={() => {
                 setActiveTab("DaySummery");

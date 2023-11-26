@@ -1,91 +1,54 @@
-import React, { useState } from 'react';
-import { Line } from 'react-chartjs-2';
-import { faker } from '@faker-js/faker';
-import ChartJS from 'chart.js/auto';
-import Chart, { App } from './DthreeLineChart';
-import LineChart from './DthreeLineChart';
+import React, { useEffect, useRef } from "react";
+import { Chart } from "react-chartjs-2";
+import variableLineColor from "./variableLineColor"; // Import the plugin
 
-export const options = {
-  responsive: true,
-  plugins: {
-    legend: {
-      position: 'top',
-      display: false,
-    },
-    title: {
-      display: false,
-      text: 'Chart.js Line Chart',
-    },
-  },
-  scales: {
-    x: {
-      type: 'category',
-      grid: {
-        display: false,
-      },
-    },
-    y: {
-      grid: {
-        display: false,
-      },
-    },
-  },
-};
+const ChartComponent = () => {
+  const chartRef = useRef(null);
 
-const generateData = (type) => {
-  const dataValues = Array.from({ length: type === 'day' ? 10 : 12 }, () =>
-    faker.datatype.number({ min: 0, max: 1000 })
-  );
+  useEffect(() => {
+    // Set up the Chart.js chart with the variable line color plugin
+    if (chartRef.current) {
+      const chartInstance = chartRef.current.chartInstance;
 
-  const colorSegments = [];
-  const threshold1 = 500;
-  const threshold2 = 800;
+      // Your data and options for the chart
+      const data = {
+        labels: ["Label 1", "Label 2", "Label 3", "Label 4", "Label 5"],
+        datasets: [
+          {
+            label: "Dataset 1",
+            data: [100, 120, 130, 90, 110],
+            borderColor: "blue",
+            borderWidth: 1,
+            fill: false,
+          },
+          // Add more datasets if needed
+        ],
+      };
 
-  for (const value of dataValues) {
-    if (value > threshold2) {
-      colorSegments.push('rgb(0, 128, 0)'); // Green
-    } else if (value > threshold1) {
-      colorSegments.push('rgb(255, 165, 0)'); // Orange
-    } else {
-      colorSegments.push('rgb(255, 0, 0)'); // Red
+      const options = {
+        variableLineColor: {
+          thresholds: [0, 115, 125],
+          colors: ["green", "yellow", "red"],
+        },
+        // Other Chart.js options
+      };
+
+      // Apply the plugin to the chart
+      chartInstance.pluginService.register(variableLineColor);
+
+      // Update the chart with new data and options
+      chartInstance.data = data;
+      chartInstance.options = options;
+      chartInstance.update();
     }
-  }
-
-  const datasets = [
-    {
-      label: '',
-      data: dataValues,
-      borderColor: colorSegments,
-      backgroundColor: colorSegments.map((color) => `${color}0.5`),
-      tension: 0.3,
-      // fill: true,
-      pointRadius: 0, // Set pointRadius to 0 to remove dots
-      pointHoverRadius: 0, // Set pointHoverRadius to 0 to remove dots on hover
-    },
-  ];
-
-  return {
-    labels: type === 'day' ? ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'] : ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-    datasets: datasets,
-  };
-};
-
-
-export function ChartContainer() {
-  const [chartType, setChartType] = useState('day');
-
-  const handleButtonClick = (type) => {
-    setChartType(type);
-  };
+  }, []);
 
   return (
-      <div className='bg-white h-[329px] w-[539px] shadow rounded-lg ' >
-       
-        <div className=' p-[20px]' >
-
-          <App/>
-        {/* <Line options={options} data={generateData(chartType)} /> */}
-        </div>
-      </div>
+    <div>
+      <h2>Variable Line Color Chart</h2>
+      <Chart ref={chartRef} />
+    </div>
   );
-}
+};
+
+export default ChartComponent;

@@ -32,15 +32,17 @@ const ProgressBarr = ({
 
   return (
     <div
-      className="h-[280px] w-[290px] shadow rounded-lg "
+      className="h-[280px] w-[290px] shadow p-2 rounded-lg "
       style={{
         backgroundColor: theme.backgroundColor,
         boxShadow: theme.shadow,
         color: theme.textColor,
       }}
     >
+            <div className="Target1000Aed  text-xs font-semibold ">Target 1000 AED</div>
+
       {/* Additional information */}
-      <div className="additional-info absolute mt-24 ml-[90px]">
+      <div className="additional-info text-center absolute mt-[81px] ml-[80px]">
         <div className="BranchName text-base font-semibold ">
           {branchName}
         </div>
@@ -56,7 +58,7 @@ const ProgressBarr = ({
       </div>
 
       {/* Progress bar */}
-      <div className="absolute ml-[3px] mt-[86px]">
+      <div className="absolute ml-[-4px] mt-[70px]">
         <div className="percent">
           <svg width="300" height="200">
             <circle cx="100" cy="100" r="88" stroke={theme.isDarkTheme ? '#2c2c2c' : "#CCC"}></circle>
@@ -73,6 +75,8 @@ const ProgressBarr = ({
           </svg>
         </div>
       </div>
+              <div className="Pur1000Aed absolute mt-[238px]  text-xs font-normal ">Pur. 1000 AED</div>
+              <div className="Exp1000Aed absolute  text-xs font-normal mt-[238px]   ml-[190px] ">EXP. 1000 AED</div>
     </div>
   );
 };

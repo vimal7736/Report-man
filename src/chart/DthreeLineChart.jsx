@@ -15,18 +15,18 @@ export class App extends Component {
     super();
     this.state = {
       data: [
-        { name: "Jan", value: 5000 },
-        { name: "Feb", value: 2000 },
-        { name: "Mar", value: 2400 },
-        { name: "Apr", value: 3000 },
-        { name: "May", value: 2000 },
-        { name: "Jun", value: 3000 },
-        { name: "July", value: 1000 },
-        { name: "Aug", value: 200 },
-        { name: "Sep", value: 200 },
-        { name: "Oct", value: 100 },
-        { name: "Nov", value: 0 },
-        { name: "Dec", value: 100 },
+        { name: "Jan", value: 600 },
+        { name: "Feb", value: 700 },
+        { name: "Mar", value: 400 },
+        { name: "Apr", value: 700 },
+        { name: "May", value: 400 },
+        { name: "Jun", value: 700 },
+        { name: "July", value: 400 },
+        { name: "Aug", value: 700 },
+        { name: "Sep", value: 400 },
+        { name: "Oct", value: 700 },
+        { name: "Nov", value: 400 },
+        { name: "Dec", value: 300 },
       ],
     };
   }
@@ -67,7 +67,7 @@ export class App extends Component {
       .padding(0.1);
 
     const yScale = scaleLinear()
-      .domain(extent(data, (d) => d.value)) // Dynamically set the domain based on data values
+      .domain(extent(data, (d) => d.value))
       .range([height, 0]);
 
     const lineGenerator = line()
@@ -75,26 +75,27 @@ export class App extends Component {
       .y((d) => yScale(d.value))
       .curve(curveCatmullRom.alpha(0.8));
 
+    const linePath = lineGenerator(
+      data.map((d) => ({ x: d.name, y: d.value }))
+    );
     return (
       <div>
         <button onClick={this.randomData}>
-        <div className="self-stretch p-2.5 justify-center items-center gap-[60px] inline-flex">
-        <div className="grow shrink basis-0 text-right text-neutral-900 text-base font-semibold font-['Poppins']">
-          Day wise comparison
-        </div>
-        <div className="justify-center items-center flex">
-          <div className="px-2.5 py-[5px] bg-neutral-900 rounded-md justify-center items-center gap-2.5 flex">
-            <div className="text-white text-[8px] font-semibold font-['Poppins']">
-              Day
+          <div className="p-2.5 pt-8 w-[450px]     flex  justify-between ">
+            <div className="   text-lg  font-semibold font-['Poppins']">
+              Day wise comparison
+            </div>
+            <div className="flex">
+              <div className="px-2.5 py-[5px] hover:bg-neutral-900 hover:text-white rounded-md ">
+                <div className="   text-[10px]  font-['Poppins']">
+                  Day
+                </div>
+              </div>
+              <div className="px-2.5 py-[5px]  hover:bg-neutral-900 hover:text-white rounded-md">
+                <div className=" text-[10px] font-['Poppins']">month</div>
+              </div>
             </div>
           </div>
-          <div className="px-2.5 py-[5px] rounded-md justify-center items-center gap-2.5 flex">
-            <div className="text-neutral-900 text-[8px] font-semibold font-['Poppins']">
-              month
-            </div>
-          </div>
-        </div>
-      </div>
         </button>
         <svg
           className="lineChartSvg"

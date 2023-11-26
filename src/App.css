@@ -464,3 +464,9 @@ line {
     height: 5px;
   }
 }
+.x-axis{
+  display: none !important;
+}
+.y-axis{
+  display: none !important;
+}

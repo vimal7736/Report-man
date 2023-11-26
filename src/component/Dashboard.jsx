@@ -8,6 +8,10 @@ import DaywiseComparison from "./DashBoardComponents/DaywiseComparison";
 import Collection from "./DashBoardComponents/Collection";
 import TopFiveSell from "./DashBoardComponents/TopFiveSell";
 import LeastFiveSelling from "./DashBoardComponents/LeastFiveSelling";
+import Line from "./line/Line";
+import Chart from "./svg/LineChart";
+import GradientLineChart from "../chart/GradientLineChart";
+import { App } from "../chart/DthreeLineChart";
 
 const Dashboard = () => {
   const { theme, toggleTheme } = useTheme();

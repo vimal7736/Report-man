@@ -112,7 +112,7 @@ const Mainpage = () => {
           <div className="flex flex-wrap  gap-3 p-[3rem]  justify-evenly">
             {progressBarsData.map((data, index) => (
               <ProgressBarr key={index} {...data} />
-            ))}
+              ))}
           </div>
         </Link>
       </div>
