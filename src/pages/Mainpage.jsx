@@ -17,6 +17,16 @@ const progressBarsData = [
     progressBarStrokeOffset: "709",
   },
   {
+    strokeColor: "#FF1A1A",
+    filterColor: "#FF1A1A",
+    textColor: "#1DFF19",
+    branchName: "Branch 4",
+    belowTargetText: "Below Minimum Target 4",
+    earningsText: "Earnings Today ",
+    value: 500,
+    progressBarStrokeOffset: "400",
+  },
+  {
     strokeColor: "#1DFF19",
     filterColor: "#1DFF19",
     textColor: "#1DFF19",
@@ -77,16 +87,7 @@ const progressBarsData = [
     value: 789.56,
     progressBarStrokeOffset: "500",
   },
-  {
-    strokeColor: "#FF1A1A",
-    filterColor: "#FF1A1A",
-    textColor: "#1DFF19",
-    branchName: "Branch 4",
-    belowTargetText: "Below Minimum Target 4",
-    earningsText: "Earnings Today ",
-    value: 500,
-    progressBarStrokeOffset: "400",
-  },
+ 
 ];
 
 const Mainpage = () => {
@@ -150,13 +151,16 @@ const Mainpage = () => {
             </div>
           </div>
         </div>
+        <div className="h-max" >
         <Link to="/dashboard" className="   rounded-xl justify-center">
-          <div className=" h-screen flex flex-wrap  gap-3 p-[3rem] justify-evenly">
+          <div className="  flex flex-wrap  gap-3 p-[3rem] justify-evenly">
             {progressBarsData.map((data, index) => (
               <ProgressBarr key={index} {...data} />
               ))}
           </div>
         </Link>
+
+        </div>
       </div>
     </div>
   );

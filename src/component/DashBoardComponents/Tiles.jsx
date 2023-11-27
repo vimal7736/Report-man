@@ -45,7 +45,7 @@ const Tiles = () => {
 
   return (
     <div className="gap-[10px] p-[4px] grow justify-start items-center">
-      <div className="w-[626px] h-[90px] flex justify-start items-start gap-[10px] grow">
+      <div className="w-[626px]  flex justify-start items-start gap-[10px] grow">
         {tileData.map((tile, index) => (
           <div
             key={index}
