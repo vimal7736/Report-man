@@ -1,13 +1,11 @@
 @media (max-width: 813px) {
     .Frame295 {
       display: none;
-      height: 100vh;
     }
   }
   @media (max-width: 500px) {
     .MainPage {
       width: 500px !important;
-      height: 100vh;
     }
   }
  

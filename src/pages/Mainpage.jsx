@@ -59,7 +59,7 @@ const Mainpage = () => {
           color: theme.textColor,
           boxShadow: theme.shadow,
         }}
-        className="h-screen 
+        className=" 
         "
       >
         <div className="h-[42px] gap-3  pl-4 pt-10 pr-16 flex justify-between">
