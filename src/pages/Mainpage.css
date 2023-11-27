@@ -1,6 +1,7 @@
 @media (max-width: 813px) {
     .Frame295 {
       display: none;
+      
     }
   }
   @media (max-width: 500px) {
@@ -8,4 +9,15 @@
       width: 500px !important;
     }
   }
+  @media (max-width: 320px) {
+    .MainPage {
+      width: 320px !important;
+    }
+  }
+  @media (max-width: 813px) {
+    .branchscreen {
+      height: max-content;
+    }
+  }
+ 
  

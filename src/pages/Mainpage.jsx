@@ -94,13 +94,13 @@ const Mainpage = () => {
   const { theme, toggleTheme } = useTheme();
 
   return (
-    <div className="MainPage">
+    <div className="MainPage h-screen ">
       <div
         style={{
           backgroundColor: theme.backgroundColor,
           color: theme.textColor,
           boxShadow: theme.shadow,
-          height:'100vh',
+          
         }}
        
       >
@@ -151,9 +151,9 @@ const Mainpage = () => {
             </div>
           </div>
         </div>
-        <div className="h-max" >
+        <div className="h-fit" >
         <Link to="/dashboard" className="   rounded-xl justify-center">
-          <div className="  flex flex-wrap  gap-3 p-[3rem] justify-evenly">
+          <div className=" branchscreen flex flex-wrap  gap-3 p-[3rem] justify-evenly h-screen">
             {progressBarsData.map((data, index) => (
               <ProgressBarr key={index} {...data} />
               ))}
