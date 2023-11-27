@@ -17,7 +17,7 @@ const Dashboard = () => {
   const { theme, toggleTheme } = useTheme();
 
   return (
-    <div className="p-3 grow">
+    <div className="p-3 grow w-fit">
       <div
         style={{
           backgroundColor: theme.backgroundColor,
