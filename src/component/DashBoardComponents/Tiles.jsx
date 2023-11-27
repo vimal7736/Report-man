@@ -44,17 +44,17 @@ const Tiles = () => {
   ];
 
   return (
-    <div className="gap-[10px] p-[4px] grow justify-start items-center">
-      <div className="w-[626px]  flex justify-start items-start gap-[10px] grow">
+    <div className="gap-[10px]  self-stretch p-[4px] grow justify-start items-center">
+      <div className=" self-stretch  flex  items-start gap-[10px] grow">
         {tileData.map((tile, index) => (
           <div
             key={index}
             style={{ boxShadow: theme.shadow }}
-            className={`px-5 bg-opacity-95 rounded-xl shadow flex-col justify-start items-start inline-flex`}
+            className={`px-5 bg-opacity-95 rounded-xl self-stretch  grow shadow flex-col justify-start items-start inline-flex`}
           >
-            <div className="h-[30px] self-stretch justify-start items-center gap-[19px] inline-flex">
-              <div className="py-2.5 justify-start items-center gap-2.5 flex">
-                <div className="relative text-[8px] font-normal font-['Poppins'] flex">
+            <div className="h-[30px] self-stretch justify-start grow items-center gap-[19px] inline-flex">
+              <div className="py-2.5 justify-start items-center gap-2.5 flex grow">
+                <div className="relative grow text-[8px] font-normal font-['Poppins'] flex">
                   <div>{tile.title}</div>
                   {index === 0 && (
                     <div className="absolute ml-[70px]">

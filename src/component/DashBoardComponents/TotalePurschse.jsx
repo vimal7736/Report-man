@@ -25,7 +25,7 @@ const TotalePurschse = () => {
   ];
 
   return (
-    <div style={{ boxShadow: theme.shadow }} className="w-[138px] px-5 py-2 bg-opacity-95 rounded-xl flex-col justify-start items-c inline-flex">
+    <div style={{ boxShadow: theme.shadow }} className="w-[138px] px-5 py-2  bg-opacity-95 rounded-xl flex-col justify-start items-c inline-flex">
       {data.map((item, index) => (
         <div key={index}>
           <div className="self-stretch justify-start items-center gap-[19px] inline-flex">

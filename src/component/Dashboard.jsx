@@ -17,18 +17,18 @@ const Dashboard = () => {
   const { theme, toggleTheme } = useTheme();
 
   return (
-    <div className="p-3 h-screen">
+    <div className="p-3 grow">
       <div
         style={{
           backgroundColor: theme.backgroundColor,
           color: theme.textColor,
           boxShadow: `0 0 10px ${theme.shadowColor}`,
         }}
-        className={`flex  flex-wrap text-${theme.textColor}`}
+        className={`flex  flex-wrap   text-${theme.textColor}`}
       >
-        <div className="">
+        <div className=" self-stretch grow">
           <Tiles />
-          <div className="flex gap-[10px] p-1">
+          <div className="flex  self-stretch gap-[10px] p-1">
             <SaleWiseComparison />
             <TotalePurschse />
             <TotalPayment />

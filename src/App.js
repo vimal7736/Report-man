@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   BrowserRouter as Router,
   Route,
@@ -15,9 +15,22 @@ import DoorDelivery from "./component/DoorDelivery";
 import "./App.css";
 
 import { MainLayout } from "./Layouts/MainLayout";
+import { useTheme } from "./ThemeContext";
 
 const App = () => {
+  const { theme } = useTheme();
+
+  useEffect(() => {
+    document.body.style.backgroundColor = theme.backgroundColor;
+  }, [theme.backgroundColor]);
+
   return (
+    <div 
+    style={{
+      backgroundColor: "#CCC",
+      color: theme.textColor,
+    }}>
+
     <Router>
       <Routes>
         <Route path="/" element={<LoginPage />} />
@@ -68,6 +81,7 @@ const App = () => {
         <Route path="/targetsetting" element={<TargetTable />} />
       </Routes>
     </Router>
+    </div>
   );
 };
 

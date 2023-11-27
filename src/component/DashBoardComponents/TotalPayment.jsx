@@ -28,11 +28,11 @@ const TotalPayment = () => {
   return (
     <div
       style={{ boxShadow: theme.shadow }}
-      className="w-[138px] px-5 py-2.5 bg-opacity-95 rounded-xl flex-col justify-start items-start inline-flex"
+      className="w-[138px] px-5 py-2.5 bg-opacity-95 rounded-xl flex-col  justify-start items-start inline-flex"
     >
       {data.map((item, index) => (
         <div key={index}>
-          <div className="self-stretch justify-start items-center gap-[19px] inline-flex">
+          <div className="self-stretch justify-start items-center grow gap-[19px] inline-flex">
             <div className="py-2.5 justify-start items-center gap-2.5 flex">
               <div className="text-[10px] font-semibold font-['Poppins'] w-[91px]">
                 {item.title}

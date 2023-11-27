@@ -1,5 +1,6 @@
 import React from "react";
 import { useTheme } from "../../ThemeContext";
+import "./salewise.css"
 
 const SaleWiseComparison = ({ data }) => {
   const salesData = [
@@ -16,11 +17,11 @@ const SaleWiseComparison = ({ data }) => {
   return (
     <div
       style={{ boxShadow: theme.shadow, overflow: "hidden" }}
-      className="flex-1 w-[330px] h-[225px] p-2 rounded-xl flex-col justify-between items-start inline-flex"
+      className="flex-1 w-[330px] h-[225px] p-2 rounded-xl flex-col grow justify-between items-start inline-flex"
     >
       <div className="Frame232 px-2 flex-col justify-between items-start flex">
-        <div className="Frame235 self-stretch justify-center gap-12 items-center flex">
-          <div className="Frame234 p-2 justify-center items-center gap-[92px] flex">
+        <div className="Frame235 self-stretch justify-center  grow gap-12 items-center flex">
+          <div className="Frame234 p-2 grow justify-center items-center gap-[92px] flex">
             <div className="SalesWiseComparison text-xs font-semibold font-['Poppins']">
               Sales wise comparison
             </div>
@@ -40,7 +41,7 @@ const SaleWiseComparison = ({ data }) => {
                 {item.label}&nbsp;&nbsp;
               </div>
               <div className="flex">
-                <div className="Frame217 grow shrink basis-0 w-[207px] justify-start items-start gap-2.5 inline-flex">
+                <div className="Frame217 grow shrink basis-0 w-[270px] md:w-[300px] sm:w-[100px]  justify-start items-start gap-2.5 inline-flex">
                   <div
                     className={`${item.color} self-stretch h-3.5`}
                     style={{ width: `${item.percent}%` }}
