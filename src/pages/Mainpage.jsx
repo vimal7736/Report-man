@@ -20,12 +20,53 @@ const progressBarsData = [
     strokeColor: "#1DFF19",
     filterColor: "#1DFF19",
     textColor: "#1DFF19",
+    branchName: "Branch 1",
+    belowTargetText: "100% target completed",
+    earningsText: "Earnings Today ",
+    value: 1233.88,
+    progressBarStrokeOffset: "709",
+  },
+  {
+    strokeColor: "#1DFF19",
+    filterColor: "#1DFF19",
+    textColor: "#1DFF19",
+    branchName: "Branch 1",
+    belowTargetText: "100% target completed",
+    earningsText: "Earnings Today ",
+    value: 1233.88,
+    progressBarStrokeOffset: "709",
+  },
+  {
+    strokeColor: "#1DFF19",
+    filterColor: "#1DFF19",
+    textColor: "#1DFF19",
+    branchName: "Branch 1",
+    belowTargetText: "100% target completed",
+    earningsText: "Earnings Today ",
+    value: 1233.88,
+    progressBarStrokeOffset: "709",
+  },
+  {
+    strokeColor: "#1DFF19",
+    filterColor: "#1DFF19",
+    textColor: "#1DFF19",
+    branchName: "Branch 1",
+    belowTargetText: "100% target completed",
+    earningsText: "Earnings Today ",
+    value: 1233.88,
+    progressBarStrokeOffset: "709",
+  },
+  {
+    strokeColor: "#1DFF19",
+    filterColor: "#1DFF19",
+    textColor: "#1DFF19",
     branchName: "Branch 2",
     belowTargetText: "75% Target Completed",
     earningsText: "Earnings Today ",
     value: 1000.22,
     progressBarStrokeOffset: "580",
   },
+ 
   {
     strokeColor: "#FFE60A",
     filterColor: "#FFE60A",
@@ -58,9 +99,9 @@ const Mainpage = () => {
           backgroundColor: theme.backgroundColor,
           color: theme.textColor,
           boxShadow: theme.shadow,
+          height:'100vh',
         }}
-        className=" 
-        "
+       
       >
         <div className="h-[42px] gap-3  pl-4 pt-10 pr-16 flex justify-between">
           <div className="justify-start items-center flex">
@@ -109,8 +150,8 @@ const Mainpage = () => {
             </div>
           </div>
         </div>
-        <Link to="/dashboard" className="rounded-xl justify-center">
-          <div className="flex flex-wrap  gap-3 p-[3rem]  justify-evenly">
+        <Link to="/dashboard" className="   rounded-xl justify-center">
+          <div className=" h-screen flex flex-wrap  gap-3 p-[3rem] justify-evenly">
             {progressBarsData.map((data, index) => (
               <ProgressBarr key={index} {...data} />
               ))}
