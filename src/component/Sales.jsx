@@ -198,18 +198,17 @@ const Sales = () => {
         { label: "Item 10", color: "amber-500", quantity: "16 pc", className: "Item10" },
         { label: "Beef Bicol Express", color: "pink-500", quantity: "40 pc", className: "BeefBicolExpress" },
         { label: "Beef Bicol Express", color: "pink-500", quantity: "40 pc", className: "BeefBicolExpress" },
-       
       ],
     },
   };
 
   const { billData, itemData } = tabData[selectedTab];
 
-  return (
-    <div className="h-screen grow">
-      <SalesTab selectedTab={selectedTab} onTabClick={handleTabClick} />
-      <BillGraph billData={billData} itemData={itemData} selectedTab={selectedTab} />
-    </div>
+    return (
+      <div className="h-screen grow">
+        <SalesTab selectedTab={selectedTab} onTabClick={handleTabClick} />
+        <BillGraph billData={billData} itemData={itemData} selectedTab={selectedTab} />
+      </div>
   );
 };
 

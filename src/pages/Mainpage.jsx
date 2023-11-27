@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import ThemeLD from "../component/svg/ThemeLD";
 import { useTheme } from "../ThemeContext";
 import ProgressBarr from "../chart/ProgressBarr";
+import "./Mainpage.css"
 
 const progressBarsData = [
   {
@@ -51,14 +52,15 @@ const Mainpage = () => {
   const { theme, toggleTheme } = useTheme();
 
   return (
-    <div>
+    <div className="MainPage">
       <div
         style={{
           backgroundColor: theme.backgroundColor,
           color: theme.textColor,
           boxShadow: theme.shadow,
         }}
-        className="h-screen "
+        className="h-screen 
+        "
       >
         <div className="h-[42px] gap-3  pl-4 pt-10 pr-16 flex justify-between">
           <div className="justify-start items-center flex">
@@ -85,13 +87,12 @@ const Mainpage = () => {
             </div>
           </div>
           <div className="justify-start items-center gap-[15px] flex">
-            <div className="justify-start items-center flex">
+            <div className="justify-start Frame295 items-center flex">
               <div className="h-[30px] pl-2.5 py-2.5 justify-center items-center gap-2.5 flex">
                 <div className="grow shrink basis-0  text-[9px] font-normal">
                   Last updated time 09-Aug-2023 08:09 AM
                 </div>
               </div>
-              <div className="w-[18px] h-[18px] relative" />
             </div>
             <div className="self-stretch pb-0.5 flex-col justify-center items-center gap-2.5 inline-flex">
               <Link
