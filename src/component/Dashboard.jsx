@@ -12,12 +12,13 @@ import Line from "./line/Line";
 import Chart from "./svg/LineChart";
 import GradientLineChart from "../chart/GradientLineChart";
 import { App } from "../chart/DthreeLineChart";
+import "./Dashboard.css"
 
 const Dashboard = () => {
   const { theme, toggleTheme } = useTheme();
 
   return (
-    <div className="p-3 grow w-fit">
+    <div className="p-3 grow  dashboardmain  ">
       <div
         style={{
           backgroundColor: theme.backgroundColor,
