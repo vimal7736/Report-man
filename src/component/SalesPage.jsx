@@ -33,7 +33,6 @@ const SalesPage = () => {
                 <div className="text-green-600 text-sm font-normal font-['Poppins']">3 %</div>
               </div>
             </div>
-
             {itemData.map((item, index) => (
               <div
                 key={index}

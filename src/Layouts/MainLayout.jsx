@@ -42,7 +42,7 @@ export const MainLayout = ({ children }) => {
               backgroundColor: theme.backgroundColor,
               color: theme.textColor,
             }}
-            className="h-20 items-center flex flex-grow"
+            className=" headerAdjust h-20 items-center flex flex-grow  sm:gap-[450px] sm:pr-5 md:gap-[450px] md:pr-5   "
           >
             <div className="h-[42px]  items-center  flex flex-grow ">
               <div className="justify-start items-center flex">
