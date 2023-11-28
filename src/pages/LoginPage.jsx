@@ -60,7 +60,7 @@ const LoginPage = () => {
         </div>
       </div>
 
-      <div className="flex flex-wrap justify-evenly   ml-[100px] p-12   ">
+      <div className="flex flex-wrap  ml-[100px] p-12   ">
         <div className="">
           <div className="relative">
             <img

@@ -148,6 +148,7 @@ export const MainLayout = ({ children }) => {
             }
             .side-drawer {
               position: fixed;
+              width: min-content;
               top: 0;
               right: 0; // Change left to right
               height: 100vh;
