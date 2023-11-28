@@ -1,0 +1,13 @@
+.Frame307 {
+    overflow-y: scroll;
+    
+  }
+  
+  .Frame307::-webkit-scrollbar {
+    width: 5px; /* Adjust the width of the scrollbar */
+  }
+  
+  .Frame307::-webkit-scrollbar-thumb {
+    background-color: #333; /* Set the color of the scrollbar thumb */
+    border-radius: 5px; /* Optional: round the corners of the thumb */
+  }
