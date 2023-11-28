@@ -34,7 +34,7 @@
 /* Media query for screens between 600px and 800px */
 @media screen and (max-width: 800px) and (min-width: 600px) {
   .Frame217 {
-    width: 220px;
+    width: 400px;
   }
 }
 
