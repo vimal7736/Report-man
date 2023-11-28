@@ -54,7 +54,7 @@ const Tiles = () => {
           >
             <div className="h-[30px] self-stretch justify-start grow items-center gap-[19px] inline-flex">
               <div className="py-2.5 justify-start items-center gap-2.5 flex grow">
-                <div className="relative grow text-[8px] font-normal font-['Poppins'] flex">
+                <div className=" grow text-[8px] font-normal font-['Poppins'] flex">
                   <div>{tile.title}</div>
                   {index === 0 && (
                     <div className="absolute ml-[70px]">

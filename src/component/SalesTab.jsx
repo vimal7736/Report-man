@@ -6,10 +6,10 @@ const SalesTab = ({ selectedTab, onTabClick }) => {
   return (
     <div className="flex grow">
       <div className="Frame366 w-96 h-9 flex-col justify-start items-start gap-2.5 inline-flex grow">
-        <div className="Frame198 justify-start items-start gap-2.5 inline-flex">
-          <div className="Frame194 justify-center items-center gap-2.5 flex">
+        <div className="Frame198 justify-start  items-start gap-2.5 inline-flex">
+          <div className="Frame194 justify-center  items-center gap-2.5 flex">
             <div
-              className={`DaySummery w-[100px] text-xs font-normal font-['Poppins'] p-2 rounded cursor-pointer ${
+              className={`DaySummery w-[100px]  text-xs font-normal font-['Poppins'] p-2 rounded cursor-pointer ${
                 activeTab === "DaySummery" ? "" : ""
               }`}
               onClick={() => {
@@ -20,7 +20,7 @@ const SalesTab = ({ selectedTab, onTabClick }) => {
               Day summery
             </div>
           </div>
-          <div className="flex relative mb-6 h-[31px]">
+          <div className="flex  mb-6 h-[31px]">
             <div className="Frame194 justify-center items-center gap-2.5 flex">
               <div
                 className={`Dining text-xs text-fuchsia-600 font-['Poppins'] ${

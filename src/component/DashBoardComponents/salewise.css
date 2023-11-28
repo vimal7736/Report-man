@@ -34,20 +34,20 @@
 /* Media query for screens between 600px and 800px */
 @media screen and (max-width: 800px) and (min-width: 600px) {
   .Frame217 {
-    width: 300px;
+    width: 180px;
   }
 }
 
 /* Media query for screens between 400px and 600px */
 @media screen and (max-width: 600px) and (min-width: 400px) {
   .Frame217 {
-    /* width: 90px; */
+    width: 160px;
   }
 }
 
 /* Media query for screens between 200px and 400px */
 @media screen and (max-width: 400px) and (min-width: 200px) {
   .Frame217 {
-    /* width: 60px; */
+    width: 146px;
   }
 }

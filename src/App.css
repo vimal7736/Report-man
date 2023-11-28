@@ -471,11 +471,16 @@ line {
   display: none !important;
 }
 
-
+@media screen and (max-width: 1200px) {
+  .headerAdjust {
+    gap: 200px;
+    padding-right: 10px;
+  }
+}
 
 @media screen and (max-width: 810px) {
   .headerAdjust {
-    gap: 450px;
+    gap: 390px;
     padding-right: 10px;
   }
 
