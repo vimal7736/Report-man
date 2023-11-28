@@ -34,7 +34,7 @@ const LeastFiveSelling = () => {
             {data.name}&nbsp;&nbsp;
           </div>
           <div className="flex">
-            <div className={`Frame217 grow shrink basis-0 w-[207px] justify-start items-start inline-flex`}>
+            <div className={` grow shrink basis-0 w-[207px] justify-start items-start inline-flex`}>
               <div
                 className={`Rectangle35 self-stretch h-[10px] rounded-e-full bg-${data.color}`}
                 style={{ width: data.percentage }}

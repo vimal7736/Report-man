@@ -7,9 +7,10 @@
 /* Media query for screens between 1200px and 1400px */
 @media screen and (max-width: 1400px) and (min-width: 1200px) {
   .Frame217 {
-    /* width: 250px; */
+    width: 250px;
   }
 }
+
 
 /* Media query for screens between 1000px and 1200px */
 @media screen and (max-width: 1200px) and (min-width: 1000px) {

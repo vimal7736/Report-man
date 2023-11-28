@@ -1,6 +1,7 @@
 import React from "react";
 import { DChart } from "../../chart/DonutChart";
 import { useTheme } from "../../ThemeContext";
+import "./collection.css"
 
 const DataItem = ({ label, color, percentage, amount }) => (
   <div className="flex-col justify-start items-start inline-flex">
@@ -20,10 +21,11 @@ const DataItem = ({ label, color, percentage, amount }) => (
   </div>
 );
 const collectionData = [
-  { label: "Cash", color: "teal-400", percentage: "60%", amount: "900 AED" },
   { label: "Google pay", color: "amber-300", percentage: "25%" },
-  { label: "Credit", color: "pink-700", percentage: "15%" },
-  { label: "Credit card", color: "orange-400", percentage: "30%" },
+  { label: " pay", color: "amber-300", percentage: "75%" },
+  { label: "Google pay", color: "amber-300", percentage: "25%" },
+  { label: "Google pay", color: "amber-300", percentage: "25%" },
+  // { label: "Credit card", color: "orange-400", percentage: "30%" },
 ];
 
 const Collection = () => {
@@ -54,9 +56,9 @@ const Collection = () => {
             <span className=" text-xl font-normal "> AED</span>
           </div>
         </div>
-        <div className="h-[126px] flex-col justify-between items-start inline-flex mt-10 ml-52 absolute">
+        <div className=" chartmain h-[126px] flex-col justify-between items-start inline-flex mt-10 ml-52 absolute">
           <DChart />
-          <div className="justify-center  absolute mt-14 ml-9 items-center inline-flex">
+          <div className=" chartmedia justify-center  absolute mt-14 ml-9 items-center inline-flex">
             <div className="px-2.5 pt-[5px] pb-2.5 justify-center items-center gap-2.5 relative">
               <div className="text-[9px] font-semibold ml-[7px] mt-[-10px] absolute ">cash</div>
               <div className="text-[10px] font-semibold relative">900 AED</div>
