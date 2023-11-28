@@ -3,7 +3,7 @@ import ItemWiseGraph from '../../chart/ItemWiseGraph'
 
 const BillGraph = ({itemData , billData}) => {
   return (
-    <div className="flex flex-wrap grow gap-[15px]  p-[10px]">
+    <div className="flex flex-wrap grow gap-[115px]  xl:gap-[15px] md:gap-[115px] p-[12px]">
         <div className="order-1">
           <div className="Frame65  grow w-64 h-96 flex-col justify-start items-start inline-flex">
             <div className="Frame56  grow self-stretch h-11 justify-start items-start inline-flex">
