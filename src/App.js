@@ -29,7 +29,7 @@ const App = () => {
     style={{
       backgroundColor: "#CCC",
       color: theme.textColor,
-      width: "min-content",
+      // width: "min-content",
     }}>
 
     <Router>
