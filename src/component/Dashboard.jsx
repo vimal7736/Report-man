@@ -40,7 +40,8 @@ const Dashboard = () => {
       <div className="flex gap-[10px] p-[0.4rem] grow  flex-wrap">
         <Collection />
         <TopFiveSell />
-        <LeastFiveSelling />
+        <TopFiveSell />
+        {/* <LeastFiveSelling /> */}
       </div>
     </div>
   );
