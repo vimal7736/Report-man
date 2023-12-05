@@ -23,10 +23,10 @@ const DataItem = ({ label, color, percentage, amount }) => (
 const collectionData = [
   { label: "Google pay", color: "amber-300", percentage: "25%" },
   { label: " pay", color: "amber-300", percentage: "75%" },
-  { label: "Google pay", color: "amber-300", percentage: "25%" },
+  { label: "credit", color: "amber-300", percentage: "25%" },
   { label: "Google pay", color: "amber-300", percentage: "25%" },
   // { label: "Credit card", color: "orange-400", percentage: "30%" },
-];
+];  
 
 const Collection = () => {
   const { theme, toggleTheme } = useTheme();

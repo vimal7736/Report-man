@@ -5,6 +5,9 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import Loading from './Loading/Loading';
 import { ThemeProvider } from './ThemeContext';
+import i18n from "../src/i18n/i18n"
+import { I18nextProvider } from 'react-i18next';
+
 
 const Root = () => {
   const [loading, setLoading] = useState(true);
@@ -23,10 +26,13 @@ const Root = () => {
 
   return (
     <React.StrictMode>
+       <I18nextProvider i18n={i18n}>
        <ThemeProvider>
 
       <App />
        </ThemeProvider>
+  </I18nextProvider>
+
     </React.StrictMode>
   );
 };

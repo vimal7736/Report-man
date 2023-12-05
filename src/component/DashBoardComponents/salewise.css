@@ -52,3 +52,23 @@
     width: 146px;
   }
 }
+
+
+@keyframes scrollRight {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.scrolling-text {
+  white-space: nowrap;
+  overflow: hidden;
+  display: inline-block;
+}
+
+.Dining:hover .scrolling-text {
+  animation: scrollRight 5s linear infinite;
+}

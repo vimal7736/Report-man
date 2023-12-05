@@ -1,0 +1,11 @@
+.custom-datepicker {
+   
+    width: 100px; /* Set the width of the datepicker */
+    
+    color: #fff; /* Set text color */
+    background-color: #3498db; /* Set background color */
+    border: 1px solid #2980b9; /* Set border color */
+    border-radius: 10px; /* Add border-radius for a rounded appearance */
+    padding: 8px; /* Add padding for spacing */
+    font-size: 14px; /* Set font size */
+  }

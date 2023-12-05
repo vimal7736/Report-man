@@ -2,6 +2,7 @@ import React from 'react';
 import { useTheme } from '../../ThemeContext';
 import Calender from '../svg/Calender';
 import Arrow from '../svg/Arrow';
+import TimeRangePicker from '../../chart/TimeRangePicker';
 
 const Tiles = () => {
   const { theme, toggleTheme } = useTheme();
@@ -59,6 +60,7 @@ const Tiles = () => {
                   {index === 0 && (
                     <div className="absolute ml-[70px]">
                       <Calender />
+                      {/* <TimeRangePicker/> */}
                     </div>
                   )}
                 </div>

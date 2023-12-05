@@ -1,54 +1,104 @@
 import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
 
-const SalesTab = ({ selectedTab, onTabClick }) => {
-  const [activeTab, setActiveTab] = useState("DaySummery");
+
+const SalesTab = ({
+  selectedTab,
+  setLoading,
+  setData,
+  getItemsSalesData,
+  setSelectedTab,
+  setTotalSales,
+  onTabClick,
+  setItemWiseSales,
+  setError,
+  setDiscount,
+  startDate,
+  endDate,
+}) => {
+  const [activeTab, setActiveTab] = useState("Day Summary");
+const { t } = useTranslation();
+
+
+  const tabs = [
+    { name: "Day Summary", dataKey: "DaySummary" },
+    { name: "Dining", dataKey: "Dine In" },
+    { name: "Take Away", dataKey: "Take Away" },
+    { name: "Delivery", dataKey: "Swiggy" },
+    { name: "Talabat", dataKey: "Talabat" },
+    { name: "Zomato", dataKey: "Zomato" },
+    { name: "Swiggy", dataKey: "Swiggy" },
+  ];
+
+
+  const handleTabClick = async (tab) => {
+    setSelectedTab(tab);
+    setActiveTab(tab);
+
+    try {
+      let result;
+
+      const selectedTabInfo = tabs.find((t) => t.name === tab);
+
+      if (selectedTabInfo) {
+        result = await getItemsSalesData(startDate, endDate, tab);
+
+        // Update state based on the selected tab's data key
+        if (selectedTabInfo.dataKey === "totalSalesData") {
+          setTotalSales(result[selectedTabInfo.dataKey] || []);
+        } else {
+          setItemWiseSales(result[selectedTabInfo.dataKey] || []);
+        }
+
+        setDiscount(result.discountAmount[0].discountAmountValue);
+      }
+    } catch (error) {
+      setError(error.message || "An error occurred");
+    } finally {
+    }
+  };
+
 
   return (
     <div className="flex grow">
-      <div className="Frame366 w-96 h-9 flex-col justify-start items-start gap-2.5 inline-flex grow">
-        <div className="Frame198 justify-start  items-start gap-2.5 inline-flex">
-          <div className="Frame194 justify-center  items-center gap-2.5 flex">
+      <div className="Frame366 pl-[12px] pr-[12px] h-9 flex-col justify-start items-start gap-2.5 inline-flex grow">
+        <div className="Frame198 justify-start items-start gap-2.5 inline-flex">
+          <div className="Frame194 justify-center items-center gap-2.5 flex">
             <div
-              className={`DaySummery w-[100px]  text-xs font-normal font-['Poppins'] p-2 rounded cursor-pointer ${
-                activeTab === "DaySummery" ? "" : ""
-              }`}
-              onClick={() => {
-                setActiveTab("DaySummery");
-                onTabClick("DaySummery");
-              }}
+              className={`Take Away text-pink-500 text-xs font-normal font-['Poppins'] ${
+                activeTab === "Day Summary"
+                  ? "bg-pink-500 text-stone-50"
+                  : "hover:bg-pink-500 hover:text-stone-50"
+              } p-2 rounded cursor-pointer`}
+              onClick={() => handleTabClick("DaySummary")}
             >
-              Day summery
+               {t("Day Summary")}
             </div>
           </div>
+
           <div className="flex  mb-6 h-[31px]">
             <div className="Frame194 justify-center items-center gap-2.5 flex">
               <div
                 className={`Dining text-xs text-fuchsia-600 font-['Poppins'] ${
-                  activeTab === "Dining"
+                  activeTab === "Dine In"
                     ? "bg-fuchsia-500 text-stone-50"
                     : "hover:bg-fuchsia-500 hover:text-stone-50"
                 } p-2 rounded `}
-                onClick={() => {
-                  setActiveTab("Dining");
-                  onTabClick("Dining");
-                }}
+                onClick={() => handleTabClick("Dine In")}
               >
-                Dining
+                 {t("Dining")}
               </div>
             </div>
             <div className="Frame195 p-2.5 justify-center items-center gap-2.5 flex">
               <div
-                className={`Takeaway text-pink-500 text-xs font-normal font-['Poppins'] ${
-                  activeTab === "Takeaway"
+                className={`Take Away text-pink-500 text-xs font-normal font-['Poppins'] ${
+                  activeTab === "Take Away"
                     ? "bg-pink-500 text-stone-50"
                     : "hover:bg-pink-500 hover:text-stone-50"
                 } p-2 rounded cursor-pointer`}
-                onClick={() => {
-                  setActiveTab("Takeaway");
-                  onTabClick("Takeaway");
-                }}
+                onClick={() => handleTabClick("Take Away")}
               >
-                Takeaway
+                {t("Take Away")}
               </div>
             </div>
             <div className="Frame196 p-2.5 justify-center items-center gap-2.5 flex">
@@ -58,12 +108,9 @@ const SalesTab = ({ selectedTab, onTabClick }) => {
                     ? "bg-red-500 text-stone-50"
                     : "hover:bg-red-500 hover:text-stone-50"
                 } p-2 rounded cursor-pointer`}
-                onClick={() => {
-                  setActiveTab("Delivery");
-                  onTabClick("Delivery");
-                }}
+                onClick={() => handleTabClick("Delivery")}
               >
-                Delivery
+                {t("Delivery")}
               </div>
             </div>
             <div className="Frame197 p-2.5 justify-center items-center gap-2.5 flex">
@@ -73,12 +120,10 @@ const SalesTab = ({ selectedTab, onTabClick }) => {
                     ? "bg-sky-500 text-stone-50"
                     : "hover:bg-sky-500 hover:text-stone-50"
                 } p-2 rounded cursor-pointer`}
-                onClick={() => {
-                  setActiveTab("Talabat");
-                  onTabClick("Talabat");
-                }}
+                onClick={() => handleTabClick("Talabat")}
               >
-                Talabat
+                {t("Talabat")}
+                
               </div>
             </div>
             <div className="Frame201 p-2.5 justify-center items-center gap-2.5 flex">
@@ -88,29 +133,24 @@ const SalesTab = ({ selectedTab, onTabClick }) => {
                     ? "bg-orange-500 text-stone-50"
                     : "hover:bg-orange-500 hover:text-stone-50"
                 } p-2 rounded cursor-pointer`}
-                onClick={() => {
-                  setActiveTab("Zomato");
-                  onTabClick("Zomato");
-                }}
+                onClick={() => handleTabClick("Zomato")}
               >
-                Zomato
+                {t("Zomato")}
+                
               </div>
             </div>
             <div className="Frame200 p-2.5 justify-center items-center gap-2.5 flex">
-            <div
-              className={`Swiggy text-fuchsia-700 text-xs font-normal font-['Poppins'] p-2 rounded cursor-pointer ${
-                activeTab === "Swiggy"
-                  ? "bg-fuchsia-500 text-stone-50"
-                  : "hover:bg-fuchsia-500 hover:text-stone-50"
-              }`}
-              onClick={() => {
-                setActiveTab("Swiggy");
-                onTabClick("Swiggy");
-              }}
-            >
-              Swiggy
+              <div
+                className={`Swiggy text-fuchsia-700 text-xs font-normal font-['Poppins'] p-2 rounded cursor-pointer ${
+                  activeTab === "Swiggy"
+                    ? "bg-fuchsia-500 text-stone-50"
+                    : "hover:bg-fuchsia-500 hover:text-stone-50"
+                }`}
+                onClick={() => handleTabClick("Swiggy")}
+              >
+                 {t("Swiggy")}
+              </div>
             </div>
-          </div>
           </div>
         </div>
       </div>

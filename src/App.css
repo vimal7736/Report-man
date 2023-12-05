@@ -445,7 +445,7 @@ line {
 /* ItemWiseGraph.css */
 
 .item-wise-graph {
-  height: 389px;
+  height: 489px;
   overflow-y: scroll;
   scrollbar-width: thin; 
   scrollbar-color: rgb(90, 90, 90) rgb(94, 94, 94); 
@@ -496,3 +496,81 @@ body::-webkit-scrollbar-thumb {
   border-radius: 5px; /* Optional: round the corners of the thumb */
   height: 50px; 
 }
+@media (max-width: 768px) {
+  /* Styles for screens smaller than 768px */
+  .Frame65 {
+    /* Adjust styles for this class */
+  }
+}
+
+@media (max-width: 768px) {
+  .Frame65 {
+    width: 100%;
+    padding: 5px;
+  }
+
+}
+@media (max-width: 768px) {
+  .BillWiseGraph {
+   
+  }
+.ItemWiseGraphContainer{
+
+}
+}
+
+
+.language-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.select-box {
+  padding: 4px 16px 4px 8px;
+  font-size: 12px;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-color: #fff;
+  background-image: linear-gradient(to right, #4CAF50, #2196F3); /* Gradient for English */
+  color: #fff;
+  cursor: pointer;
+  outline: none;
+  transition: background 0.3s ease;
+}
+
+/* Hover effect */
+.select-box:hover {
+  background-image: linear-gradient(to right, #45a049, #1967d2);
+}
+
+/* Style the dropdown arrow icon */
+.select-box::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 50%;
+  right: 6px;
+  width: 0;
+  height: 0;
+  border: 4px solid transparent;
+  border-top-color: #fff;
+  margin-top: -2px;
+  pointer-events: none;
+}
+
+/* Style the options */
+.select-box option {
+  font-size: 12px;
+  background-color: #fff;
+  color: #333;
+  transition: background 0.3s ease;
+}
+
+/* Hover effect for options */
+.select-box option:hover {
+  background-color: #e0e0e0;
+}
+

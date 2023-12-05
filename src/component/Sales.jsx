@@ -1,308 +1,118 @@
-// Sales.js
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import SalesTab from "./SalesTab";
 import BillGraph from "./DashBoardComponents/BillGraph";
+import { useTranslation } from 'react-i18next';
+import { getItemsSalesData } from "../Service/SalesData/service";
+import "./Sales.css";
 
 const Sales = () => {
-  const [selectedTab, setSelectedTab] = useState("DaySummery");
+  const [selectedTabType, setSelectedTabType] = useState("totalSales");
+  const [selectedTab, setSelectedTab] = useState("DaySummary");
+  const [data, setData] = useState(null);
+  const [itemWiseSales, setItemWiseSales] = useState([]);
+  const [totalSales, setTotalSales] = useState([]);
+  const [discount, setDiscount] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const [startDate, setStartDate] = useState(new Date("02/11/2023"));
+  const [endDate, setEndDate] = useState(new Date("10/11/2023"));
+  const { t } = useTranslation();
 
-  const handleTabClick = (tab) => {
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const result = await getItemsSalesData(startDate, endDate, selectedTab);
+        setData(result);
+        setItemWiseSales(result.itemWiseSales || []);
+        setDiscount(result.discountAmount[0].discountAmountValue);
+        setTotalSales(result.totalSalesData);
+      } catch (error) {
+        setError(error.message || "An error occurred");
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, [startDate, endDate, selectedTab]);
+
+  const handleTabClick = async (tab) => {
     setSelectedTab(tab);
+    setLoading(true);
+    try {
+      let result;
+      if (tab === "Dine In" || tab === "Take Away" || tab === "Swiggy") {
+        result = await getItemsSalesData(startDate, endDate, "total");
+        setTotalSales(result.totalSalesData);
+        setSelectedTabType("totalSales");
+      } 
+      else if (tab === "DaySummary") {
+        result = await getItemsSalesData(startDate, endDate, "DaySummery");
+        setSelectedTabType("DaySummery");
+      } 
+      
+      
+      else {
+        // Handle other tabs as needed
+        // For example, if there are more tabs, add conditions for each one
+        // result = await getItemsSalesData(startDate, endDate, tab);
+        // setSelectedTabType("SomeOtherType");
+      }
+  
+      setData(result);
+      setItemWiseSales(result.itemWiseSales || []);
+      setDiscount(result.discountAmount[0].discountAmountValue);
+    } catch (error) {
+      setError(error.message || "An error occurred");
+    } finally {
+      setLoading(false);
+    }
   };
-
-  const tabData = {
-    DaySummery: {
-      billData: [
-        { billNo: "373643243", amount: "2.00" },
-        { billNo: "253272764", amount: "1.00" },
-        { billNo: "123456789", amount: "3.50" },
-        { billNo: "987654321", amount: "4.75" },
-        { billNo: "456789012", amount: "2.50" },
-        { billNo: "345678901", amount: "1.75" },
-        { billNo: "234567890", amount: "5.00" },
-        { billNo: "678901234", amount: "3.25" },
-        { billNo: "567890123", amount: "4.50" },
-        { billNo: "987654321", amount: "4.75" },
-        { billNo: "456789012", amount: "2.50" },
-        
-        { billNo: "890123456", amount: "2.75" },
-        { billNo: "890123456", amount: "2.75" },
-      ],
-      itemData: [
-        { label: "B123eef Bicol Express", color: "pink-500", quantity: "40 pc", className: "BeefBicolExpress" },
-        { label: "C1233", color: "sky-500", quantity: "28 pc", className: "C3" },
-        { label: "B123eef Bicol Express", color: "pink-500", quantity: "40 pc", className: "BeefBicolExpress" },
-        { label: "I123tem 10", color: "amber-500", quantity: "16 pc", className: "Item10" },
-        { label: "C1233", color: "sky-500", quantity: "28 pc", className: "C3" },
-        { label: "B123eef Bicol Express", color: "pink-500", quantity: "40 pc", className: "BeefBicolExpress" },
-        { label: "C1233", color: "sky-500", quantity: "28 pc", className: "C3" },
-        { label: "I123tem 10", color: "amber-500", quantity: "16 pc", className: "Item10" },
-        { label: "B123eef Bicol Express", color: "pink-500", quantity: "40 pc", className: "BeefBicolExpress" },
-        { label: "B123eef Bicol Express", color: "pink-500", quantity: "40 pc", className: "BeefBicolExpress" },
-        { label: "I123tem 10", color: "amber-500", quantity: "16 pc", className: "Item10" },
-        { label: "B123eef Bicol Express", color: "pink-500", quantity: "40 pc", className: "BeefBicolExpress" },
-        { label: "B123eef Bicol Express", color: "pink-500", quantity: "40 pc", className: "BeefBicolExpress" },
-        { label: "I123tem 10", color: "amber-500", quantity: "16 pc", className: "Item10" },
-        { label: "B123eef Bicol Express", color: "pink-500", quantity: "40 pc", className: "BeefBicolExpress" },
-        { label: "B123eef Bicol Express", color: "pink-500", quantity: "40 pc", className: "BeefBicolExpress" },
-        { label: "I123tem 10", color: "amber-500", quantity: "16 pc", className: "Item10" },
-        { label: "B123eef Bicol Express", color: "pink-500", quantity: "40 pc", className: "BeefBicolExpress" },
-        { label: "B123eef Bicol Express", color: "pink-500", quantity: "40 pc", className: "BeefBicolExpress" },
-       
-      ],
-    },
-    Dining: {
-      billData: [
-        { billNo: "Dining_Bill1", amount: "3.50" },
-        { billNo: "Dining_Bill2", amount: "4.75" },
-        { billNo: "Dining_Bill3", amount: "2.25" },
-        { billNo: "Dining_Bill4", amount: "5.00" },
-        { billNo: "Dining_Bill5", amount: "3.75" },
-        { billNo: "Dining_Bill6", amount: "6.50" },
-        { billNo: "Dining_Bill7", amount: "4.00" },
-        { billNo: "Dining_Bill8", amount: "7.25" },
-        { billNo: "Dining_Bill9", amount: "5.50" },
-        { billNo: "Dining_Bill10", amount: "8.00" },
-        { billNo: "Dining_Bill5", amount: "3.75" },
-        { billNo: "Dining_Bill6", amount: "6.50" },
-        { billNo: "Dining_Bill7", amount: "4.00" },
-        { billNo: "Dining_Bill8", amount: "7.25" },
-        { billNo: "Dining_Bill9", amount: "5.50" },
-        { billNo: "Dining_Bill10", amount: "8.00" },
-      ],
-      itemData: [
-        { label: "00Beef Bicol Express", color: "pink-500", quantity: "40 pc", className: "BeefBicolExpress" },
-        { label: "00C3", color: "sky-500", quantity: "28 pc", className: "C3" },
-        { label: "00Beef Bicol Express", color: "pink-500", quantity: "40 pc", className: "BeefBicolExpress" },
-        { label: "00Item 10", color: "amber-500", quantity: "16 pc", className: "Item10" },
-        { label: "00C3", color: "sky-500", quantity: "28 pc", className: "C3" },
-        { label: "00Beef Bicol Express", color: "pink-500", quantity: "40 pc", className: "BeefBicolExpress" },
-        { label: "00C3", color: "sky-500", quantity: "28 pc", className: "C3" },
-        { label: "00Item 10", color: "amber-500", quantity: "16 pc", className: "Item10" },
-        { label: "00Beef Bicol Express", color: "pink-500", quantity: "40 pc", className: "BeefBicolExpress" },
-        { label: "00Beef Bicol Express", color: "pink-500", quantity: "40 pc", className: "BeefBicolExpress" },
-        { label: "00Item 10", color: "amber-500", quantity: "16 pc", className: "Item10" },
-        { label: "00C3", color: "sky-500", quantity: "28 pc", className: "C3" },
-        { label: "00Beef Bicol Express", color: "pink-500", quantity: "40 pc", className: "BeefBicolExpress" },
-        { label: "00C3", color: "sky-500", quantity: "28 pc", className: "C3" },
-        { label: "00Item 10", color: "amber-500", quantity: "16 pc", className: "Item10" },
-        { label: "00Beef Bicol Express", color: "pink-500", quantity: "40 pc", className: "BeefBicolExpress" },
-        { label: "00Beef Bicol Express", color: "pink-500", quantity: "40 pc", className: "BeefBicolExpress" },
-       
-      ],
-    },
-    
-    Takeaway: {
-      billData: [
-        { billNo: "Takeaway_Bill1", amount: "3.25" },
-        { billNo: "Takeaway_Bill2", amount: "4.50" },
-        { billNo: "Takeaway_Bill3", amount: "2.75" },
-        { billNo: "Takeaway_Bill4", amount: "5.50" },
-        { billNo: "Takeaway_Bill5", amount: "3.75" },
-        { billNo: "Takeaway_Bill6", amount: "6.00" },
-        { billNo: "Takeaway_Bill7", amount: "4.25" },
-        { billNo: "Takeaway_Bill8", amount: "7.50" },
-        { billNo: "Takeaway_Bill9", amount: "5.25" },
-        { billNo: "Takeaway_Bill10", amount: "8.75" },
-        { billNo: "Takeaway_Bill5", amount: "3.75" },
-        { billNo: "Takeaway_Bill6", amount: "6.00" },
-        { billNo: "Takeaway_Bill7", amount: "4.25" },
-        { billNo: "Takeaway_Bill8", amount: "7.50" },
-        { billNo: "Takeaway_Bill9", amount: "5.25" },
-        { billNo: "Takeaway_Bill10", amount: "8.75" },
-      ],
-      itemData: [
-        { label: "ppBeef Bicol Express", color: "pink-500", quantity: "40 pc", className: "BeefBicolExpress" },
-        { label: "ppC3", color: "sky-500", quantity: "28 pc", className: "C3" },
-        { label: "ppBeef Bicol Express", color: "pink-500", quantity: "40 pc", className: "BeefBicolExpress" },
-        { label: "ppItem 10", color: "amber-500", quantity: "16 pc", className: "Item10" },
-        { label: "ppC3", color: "sky-500", quantity: "28 pc", className: "C3" },
-        { label: "ppBeef Bicol Express", color: "pink-500", quantity: "40 pc", className: "BeefBicolExpress" },
-        { label: "ppC3", color: "sky-500", quantity: "28 pc", className: "C3" },
-        { label: "ppItem 10", color: "amber-500", quantity: "16 pc", className: "Item10" },
-        { label: "ppBeef Bicol Express", color: "pink-500", quantity: "40 pc", className: "BeefBicolExpress" },
-        { label: "ppBeef Bicol Express", color: "pink-500", quantity: "40 pc", className: "BeefBicolExpress" },
-        { label: "ppItem 10", color: "amber-500", quantity: "16 pc", className: "Item10" },
-        { label: "ppC3", color: "sky-500", quantity: "28 pc", className: "C3" },
-        { label: "ppBeef Bicol Express", color: "pink-500", quantity: "40 pc", className: "BeefBicolExpress" },
-        { label: "ppC3", color: "sky-500", quantity: "28 pc", className: "C3" },
-        { label: "ppItem 10", color: "amber-500", quantity: "16 pc", className: "Item10" },
-        { label: "ppBeef Bicol Express", color: "pink-500", quantity: "40 pc", className: "BeefBicolExpress" },
-        { label: "ppBeef Bicol Express", color: "pink-500", quantity: "40 pc", className: "BeefBicolExpress" },
-       
-      ],
-    },
-    Delivery: {
-      billData: [
-        { billNo: "Delivery_Bill1", amount: "4.00" },
-        { billNo: "Delivery_Bill2", amount: "5.25" },
-        { billNo: "Delivery_Bill3", amount: "3.75" },
-        { billNo: "Delivery_Bill4", amount: "6.50" },
-        { billNo: "Delivery_Bill5", amount: "4.75" },
-        { billNo: "Delivery_Bill6", amount: "7.00" },
-        { billNo: "Delivery_Bill7", amount: "5.25" },
-        { billNo: "Delivery_Bill8", amount: "8.50" },
-        { billNo: "Delivery_Bill9", amount: "6.25" },
-        { billNo: "Delivery_Bill10", amount: "9.75" },
-        { billNo: "Delivery_Bill5", amount: "4.75" },
-        { billNo: "Delivery_Bill6", amount: "7.00" },
-        { billNo: "Delivery_Bill7", amount: "5.25" },
-        { billNo: "Delivery_Bill8", amount: "8.50" },
-        { billNo: "Delivery_Bill9", amount: "6.25" },
-        { billNo: "Delivery_Bill10", amount: "9.75" },
-      ],
-      itemData: [
-        { label: "Beef Bicol Express", color: "pink-500", quantity: "40 pc", className: "BeefBicolExpress" },
-        { label: "C3", color: "sky-500", quantity: "28 pc", className: "C3" },
-        { label: "Beef Bicol Express", color: "pink-500", quantity: "40 pc", className: "BeefBicolExpress" },
-        { label: "Item 10", color: "amber-500", quantity: "16 pc", className: "Item10" },
-        { label: "C3", color: "sky-500", quantity: "28 pc", className: "C3" },
-        { label: "Beef Bicol Express", color: "pink-500", quantity: "40 pc", className: "BeefBicolExpress" },
-        { label: "C3", color: "sky-500", quantity: "28 pc", className: "C3" },
-        { label: "Item 10", color: "amber-500", quantity: "16 pc", className: "Item10" },
-        { label: "Beef Bicol Express", color: "pink-500", quantity: "40 pc", className: "BeefBicolExpress" },
-        { label: "Beef Bicol Express", color: "pink-500", quantity: "40 pc", className: "BeefBicolExpress" },
-        { label: "C3", color: "sky-500", quantity: "28 pc", className: "C3" },
-        { label: "Beef Bicol Express", color: "pink-500", quantity: "40 pc", className: "BeefBicolExpress" },
-        { label: "C3", color: "sky-500", quantity: "28 pc", className: "C3" },
-        { label: "Item 10", color: "amber-500", quantity: "16 pc", className: "Item10" },
-        { label: "Beef Bicol Express", color: "pink-500", quantity: "40 pc", className: "BeefBicolExpress" },
-        { label: "Beef Bicol Express", color: "pink-500", quantity: "40 pc", className: "BeefBicolExpress" },
-       
-      ],
-    },
-    Talabat: {
-      billData: [
-        { billNo: "Talabat_Bill1", amount: "3.75" },
-        { billNo: "Talabat_Bill2", amount: "5.00" },
-        { billNo: "Talabat_Bill3", amount: "2.50" },
-        { billNo: "Talabat_Bill4", amount: "4.00" },
-        { billNo: "Talabat_Bill5", amount: "3.25" },
-        { billNo: "Talabat_Bill6", amount: "5.50" },
-        { billNo: "Talabat_Bill7", amount: "3.00" },
-        { billNo: "Talabat_Bill8", amount: "6.25" },
-        { billNo: "Talabat_Bill9", amount: "4.50" },
-        { billNo: "Talabat_Bill10", amount: "7.75" },
-        { billNo: "Talabat_Bill5", amount: "3.25" },
-        { billNo: "Talabat_Bill6", amount: "5.50" },
-        { billNo: "Talabat_Bill7", amount: "3.00" },
-        { billNo: "Talabat_Bill8", amount: "6.25" },
-        { billNo: "Talabat_Bill9", amount: "4.50" },
-        { billNo: "Talabat_Bill10", amount: "7.75" },
-      ],
-      itemData: [
-        { label: "Beef Bicol Express", color: "pink-500", quantity: "40 pc", className: "BeefBicolExpress" },
-        { label: "C3", color: "sky-500", quantity: "28 pc", className: "C3" },
-        { label: "Beef Bicol Express", color: "pink-500", quantity: "40 pc", className: "BeefBicolExpress" },
-        { label: "Item 10", color: "amber-500", quantity: "16 pc", className: "Item10" },
-        { label: "C3", color: "sky-500", quantity: "28 pc", className: "C3" },
-        { label: "Beef Bicol Express", color: "pink-500", quantity: "40 pc", className: "BeefBicolExpress" },
-        { label: "C3", color: "sky-500", quantity: "28 pc", className: "C3" },
-        { label: "Item 10", color: "amber-500", quantity: "16 pc", className: "Item10" },
-        { label: "Beef Bicol Express", color: "pink-500", quantity: "40 pc", className: "BeefBicolExpress" },
-        { label: "Beef Bicol Express", color: "pink-500", quantity: "40 pc", className: "BeefBicolExpress" },
-        { label: "C3", color: "sky-500", quantity: "28 pc", className: "C3" },
-        { label: "Beef Bicol Express", color: "pink-500", quantity: "40 pc", className: "BeefBicolExpress" },
-        { label: "C3", color: "sky-500", quantity: "28 pc", className: "C3" },
-        { label: "Item 10", color: "amber-500", quantity: "16 pc", className: "Item10" },
-        { label: "Beef Bicol Express", color: "pink-500", quantity: "40 pc", className: "BeefBicolExpress" },
-        { label: "Beef Bicol Express", color: "pink-500", quantity: "40 pc", className: "BeefBicolExpress" },
-       
-      ],
-    },
-    Zomato: {
-      billData: [
-        { billNo: "Zomato_Bill1", amount: "4.25" },
-        { billNo: "Zomato_Bill2", amount: "5.50" },
-        { billNo: "Zomato_Bill3", amount: "3.00" },
-        { billNo: "Zomato_Bill4", amount: "6.25" },
-        { billNo: "Zomato_Bill5", amount: "4.50" },
-        { billNo: "Zomato_Bill6", amount: "7.75" },
-        { billNo: "Zomato_Bill7", amount: "5.00" },
-        { billNo: "Zomato_Bill8", amount: "8.25" },
-        { billNo: "Zomato_Bill9", amount: "6.00" },
-        { billNo: "Zomato_Bill10", amount: "9.25" },
-        { billNo: "Zomato_Bill5", amount: "4.50" },
-        { billNo: "Zomato_Bill6", amount: "7.75" },
-        { billNo: "Zomato_Bill7", amount: "5.00" },
-        { billNo: "Zomato_Bill8", amount: "8.25" },
-        { billNo: "Zomato_Bill9", amount: "6.00" },
-        { billNo: "Zomato_Bill10", amount: "9.25" },
-        { billNo: "Zomato_Bill5", amount: "4.50" },
-        { billNo: "Zomato_Bill6", amount: "7.75" },
-        { billNo: "Zomato_Bill7", amount: "5.00" },
-        { billNo: "Zomato_Bill8", amount: "8.25" },
-        { billNo: "Zomato_Bill9", amount: "6.00" },
-        { billNo: "Zomato_Bill10", amount: "9.25" },
-      ],
-      itemData: [
-        { label: "Beef Bicol Express", color: "pink-500", quantity: "40 pc", className: "BeefBicolExpress" },
-        { label: "C3", color: "sky-500", quantity: "28 pc", className: "C3" },
-        { label: "Beef Bicol Express", color: "pink-500", quantity: "40 pc", className: "BeefBicolExpress" },
-        { label: "Item 10", color: "amber-500", quantity: "16 pc", className: "Item10" },
-        { label: "C3", color: "sky-500", quantity: "28 pc", className: "C3" },
-        { label: "Beef Bicol Express", color: "pink-500", quantity: "40 pc", className: "BeefBicolExpress" },
-        { label: "C3", color: "sky-500", quantity: "28 pc", className: "C3" },
-        { label: "Item 10", color: "amber-500", quantity: "16 pc", className: "Item10" },
-        { label: "Beef Bicol Express", color: "pink-500", quantity: "40 pc", className: "BeefBicolExpress" },
-        { label: "Beef Bicol Express", color: "pink-500", quantity: "40 pc", className: "BeefBicolExpress" },
-        { label: "Item 10", color: "amber-500", quantity: "16 pc", className: "Item10" },
-        { label: "C3", color: "sky-500", quantity: "28 pc", className: "C3" },
-        { label: "Beef Bicol Express", color: "pink-500", quantity: "40 pc", className: "BeefBicolExpress" },
-        { label: "C3", color: "sky-500", quantity: "28 pc", className: "C3" },
-        { label: "Item 10", color: "amber-500", quantity: "16 pc", className: "Item10" },
-        { label: "Beef Bicol Express", color: "pink-500", quantity: "40 pc", className: "BeefBicolExpress" },
-        { label: "Beef Bicol Express", color: "pink-500", quantity: "40 pc", className: "BeefBicolExpress" },
-       
-      ],
-    },
-    Swiggy: {
-      billData: [
-        { billNo: "Talabat_Bill1", amount: "3.75" },
-        { billNo: "Talabat_Bill2", amount: "5.00" },
-        { billNo: "Talabat_Bill3", amount: "2.50" },
-        { billNo: "Talabat_Bill4", amount: "4.00" },
-        { billNo: "Talabat_Bill5", amount: "3.25" },
-        { billNo: "Talabat_Bill6", amount: "5.50" },
-        { billNo: "Talabat_Bill7", amount: "3.00" },
-        { billNo: "Talabat_Bill8", amount: "6.25" },
-        { billNo: "Talabat_Bill9", amount: "4.50" },
-        { billNo: "Talabat_Bill10", amount: "7.75" },
-        { billNo: "Talabat_Bill5", amount: "3.25" },
-        { billNo: "Talabat_Bill6", amount: "5.50" },
-        { billNo: "Talabat_Bill7", amount: "3.00" },
-        { billNo: "Talabat_Bill8", amount: "6.25" },
-        { billNo: "Talabat_Bill9", amount: "4.50" },
-        { billNo: "Talabat_Bill10", amount: "7.75" },
-      ],
-      itemData: [
-        { label: "Beef Bicol Express", color: "pink-500", quantity: "40 pc", className: "BeefBicolExpress" },
-        { label: "C3", color: "sky-500", quantity: "28 pc", className: "C3" },
-        { label: "Beef Bicol Express", color: "pink-500", quantity: "40 pc", className: "BeefBicolExpress" },
-        { label: "Item 10", color: "amber-500", quantity: "16 pc", className: "Item10" },
-        { label: "C3", color: "sky-500", quantity: "28 pc", className: "C3" },
-        { label: "Beef Bicol Express", color: "pink-500", quantity: "40 pc", className: "BeefBicolExpress" },
-        { label: "C3", color: "sky-500", quantity: "28 pc", className: "C3" },
-        { label: "Item 10", color: "amber-500", quantity: "16 pc", className: "Item10" },
-        { label: "Beef Bicol Express", color: "pink-500", quantity: "40 pc", className: "BeefBicolExpress" },
-        { label: "Beef Bicol Express", color: "pink-500", quantity: "40 pc", className: "BeefBicolExpress" },
-        { label: "C3", color: "sky-500", quantity: "28 pc", className: "C3" },
-        { label: "Beef Bicol Express", color: "pink-500", quantity: "40 pc", className: "BeefBicolExpress" },
-        { label: "C3", color: "sky-500", quantity: "28 pc", className: "C3" },
-        { label: "Item 10", color: "amber-500", quantity: "16 pc", className: "Item10" },
-        { label: "Beef Bicol Express", color: "pink-500", quantity: "40 pc", className: "BeefBicolExpress" },
-        { label: "Beef Bicol Express", color: "pink-500", quantity: "40 pc", className: "BeefBicolExpress" },
-      ],
-    },
+  
+  
+  const ItemWiseGraph = ({ totalSales, itemWiseSales, loading, displayMode }) => {
+    const [activeMode, setActiveMode] = useState('DaySummary');
+  
+    useEffect(() => {
+      if (displayMode !== 'total') {
+        setActiveMode(displayMode.toLowerCase());
+      } else {
+        setActiveMode('DaySummary');
+      }
+    }, [displayMode]);
+  
+    const dataToSort = activeMode === 'DaySummary' ? totalSales : itemWiseSales;
   };
+  
 
-  const { billData, itemData } = tabData[selectedTab];
-
-    return (
-      <div className="h-screen grow">
-        <SalesTab selectedTab={selectedTab} onTabClick={handleTabClick} />
-        <BillGraph billData={billData} itemData={itemData} selectedTab={selectedTab} />
+  return (
+    <div className="flex flex-col ">
+     
+      <div className="flex ">
+        <SalesTab
+          setError={setError}
+          selectedTab={selectedTab}
+          onTabClick={handleTabClick}
+          setItemWiseSales={setItemWiseSales}
+          setData={setData}
+          endDate={endDate}
+          setSelectedTab={setSelectedTab}
+        />
       </div>
+      <div>
+
+      <BillGraph
+        data={data}
+        billData={data?.billData}
+        itemData={data?.itemData}
+        itemWiseSales={itemWiseSales}
+        selectedTab={selectedTab}
+        loading={loading}
+        discount={discount}
+        totalSales={totalSales}
+      />
+      </div>
+    </div>  
   );
 };
 

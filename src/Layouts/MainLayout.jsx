@@ -5,15 +5,32 @@ import { useState } from "react";
 import Excelsvg from "../component/svg/Excelsvg";
 import ThemeLD from "../component/svg/ThemeLD";
 import drawer from "../../src/images/drawer.png";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import { getItemsSalesData } from "../Service/SalesData/service";
+import { useTranslation } from "react-i18next";
+import enFlagImage from "../images/flag/english.png";
+import arFlagImage from "../images/flag/uae.png";
 
 export const MainLayout = ({ children }) => {
   const { theme, toggleTheme } = useTheme();
+  const { t, i18n } = useTranslation();
   const location = useLocation();
 
   const [isSideDrawerOpen, setIsSideDrawerOpen] = useState(false);
 
   const toggleSideDrawer = () => {
     setIsSideDrawerOpen((prev) => !prev);
+  };
+
+  const changeLanguage = (lng) => {
+    i18n.changeLanguage(lng);
+
+    if (lng === "ar") {
+      document.body.style.direction = "rtl";
+    } else {
+      document.body.style.direction = "ltr";
+    }
   };
 
   return (
@@ -46,19 +63,19 @@ export const MainLayout = ({ children }) => {
           >
             <div className="h-[42px]  items-center  flex flex-grow ">
               <div className="justify-start items-center flex">
-                <div className="p-2.5 justify-center items-center gap-2.5 flex">
+                <div className="pr-2 justify-center items-center gap-2.5 flex">
                   <div className="justify-center items-center sales gap-2.5 flex"></div>
                   <div
                     style={{
                       backgroundColor: theme.backgroundColor,
                       color: theme.textColor,
                     }}
-                    className="flex w-[150px]"
+                    className="flex w-[150px]  "
                   >
-                    <Link to="/branch">
+                    <Link className="   mr-[-25px]" to="/branch">
                       <Excelsvg />
                     </Link>
-                    &nbsp;&nbsp; Branch name
+                    <div className="ml-4">&nbsp;&nbsp; {t("Branch name")}</div>
                   </div>
                 </div>
                 <div className=" text-xs rounded-lg hover:bg-neutral-900 hover:text-white  "></div>
@@ -73,7 +90,7 @@ export const MainLayout = ({ children }) => {
                         : "hover:bg-neutral-900 hover:text-white "
                     } `}
                   >
-                    Dashboard
+                    {t("Dashboard")}
                   </Link>
                 </div>
 
@@ -86,7 +103,7 @@ export const MainLayout = ({ children }) => {
                         : "hover:bg-neutral-900 hover:text-white "
                     } `}
                   >
-                    Sales
+                    {t("Sales")}
                   </Link>
                 </div>
 
@@ -99,7 +116,7 @@ export const MainLayout = ({ children }) => {
                         : "hover:bg-neutral-900 hover:text-white "
                     } `}
                   >
-                    Payment
+                    {t("Payment")}
                   </Link>
                 </div>
 
@@ -112,28 +129,36 @@ export const MainLayout = ({ children }) => {
                         : "hover:bg-neutral-900 hover:text-white "
                     } `}
                   >
-                    Tax
+                    {t("Tax")}
                   </Link>
                 </div>
               </div>
-              <div className="justify-end items-center   flex">
+              &nbsp;
+              <div className="">
                 <div className="self-stretch pb-0.5 opacity-0 flex-col justify-center items-center gap-2.5 inline-flex">
-                  <div className="justify-start items-center gap-2.5 inline-flex">
-                    <div className="w-10 self-stretch text-red-600 text-xs font-normal font-['Inter']">
-                      Logout
-                    </div>
-                  </div>
+                  <div className="justify-start items-center gap-2.5 inline-flex"></div>
                 </div>
               </div>
             </div>
-            <div className="  ">
+            <div className=" flex  justify-evenly gap-4 ">
+            <div className="language-dropdown">
+  <select className="select-box" onChange={(e) => changeLanguage(e.target.value)}>
+    <option value="en">English</option>
+    <option value="ar">Arabic</option>
+  </select>
+</div>
+
               <div className=" h-[18px] " />
               <button
-                className=" text-black p-2 rounded-full"
+                className=" text-black rounded-full"
                 onClick={toggleTheme}
               >
                 <ThemeLD />
               </button>
+
+              <div className="w-10 self-stretch pt-2 text-red-600 text-xs font-normal ">
+                Logout
+              </div>
               <button
                 className="  sideTogglee text-black  p-2 rounded-full"
                 onClick={toggleSideDrawer}
@@ -142,6 +167,7 @@ export const MainLayout = ({ children }) => {
               </button>
             </div>
           </div>
+
           {children}
           <style jsx>{`
             .main-layout {
