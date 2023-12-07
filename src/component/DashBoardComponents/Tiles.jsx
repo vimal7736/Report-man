@@ -3,6 +3,7 @@ import { useTheme } from '../../ThemeContext';
 import Calender from '../svg/Calender';
 import Arrow from '../svg/Arrow';
 import TimeRangePicker from '../../chart/TimeRangePicker';
+import "./tile.css"
 
 const Tiles = () => {
   const { theme, toggleTheme } = useTheme();
@@ -46,7 +47,7 @@ const Tiles = () => {
 
   return (
     <div className="gap-[10px]  self-stretch p-[4px] grow justify-start items-center">
-      <div className=" self-stretch  flex  items-start gap-[10px] grow">
+      <div className=" self-stretch  flex flex-wrap newmedia  items-start gap-[10px] grow">
         {tileData.map((tile, index) => (
           <div
             key={index}

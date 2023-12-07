@@ -56,7 +56,7 @@ export const MainLayout = ({ children }) => {
               backgroundColor: theme.backgroundColor,
               color: theme.textColor,
             }}
-            className=" headerAdjust h-20 items-center flex flex-grow  sm:gap-[450px] sm:pr-5 md:gap-[450px] md:pr-5   "
+            className="justify-center gap-2 h-20 items-center flex flex-grow  sm:gap-[450px] sm:pr-5 md:gap-[450px] md:pr-5   "
           >
             <div className="h-[42px]  items-center  flex flex-grow ">
               <div className="justify-start items-center flex">
@@ -140,10 +140,10 @@ export const MainLayout = ({ children }) => {
             <div className=" flex  justify-evenly gap-4 ">
 
 
-            <div class=" h-7 justify-start items-center gap-3.5 inline-flex">
-                <div class=" justify-start items-center flex">
-                  <div class=" justify-start items-center flex">
-                    <div class="  justify-center items-center gap-2.5 flex">
+            <div class=" h-7 justify-start items-center gap-3.5 inline-flex flex-wrap">
+                <div class=" justify-start items-center flex flex-wrap">
+                  <div class=" justify-start items-center flex flex-wrap">
+                    <div class="  justify-center items-center gap-2.5 flex flex-wrap">
                       <div class="ExportToExcel text-xs font-normal ">
                         Export to excel
                       </div>

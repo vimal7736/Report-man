@@ -149,7 +149,7 @@ const SaleWiseComparison = () => {
   return (
     <div
       style={{ boxShadow: theme.shadow, overflow: "hidden" }}
-       className="flex-1 w-[330px] h-[225px] p-2 rounded-xl flex-col grow justify-center items-center inline-flex"
+       className="flex-1 newmedia w-[330px] h-[225px] p-2 rounded-xl flex-col grow justify-center items-center inline-flex"
     >
       <div className="Frame232 px-2 flex-col grow justify-center items-center flex">
         <div className="Frame235 self-stretch justify-center grow gap-12 items-center flex">
