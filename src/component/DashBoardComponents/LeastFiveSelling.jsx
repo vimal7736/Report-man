@@ -1,22 +1,59 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useTheme } from '../../ThemeContext';
+import { getLeastSellingData } from '../../Service/SelllingItem/service';
 
-const LeastFiveSelling = () => {
+const TopFiveSell = () => {
   const { theme, toggleTheme } = useTheme();
+  const [topFiveData, setTopFiveData] = useState([]);
+  const [randomColors, setRandomColors] = useState([]);
+  const maxTotal = Math.max(...topFiveData.map(item => item.total));
 
-  const leastFiveData = [
-    { name: 'specoial beef bulao', color: 'sky-500', percentage: '60%', amount: '40.3 AED' },
-    { name: 'chicken kare kea', color: 'orange-500', percentage: '30%', amount: '30 AED' },
-    { name: 'specoial beef bulao', color: 'sky-500', percentage: '63%', amount: '43.3 AED' },
-    { name: 'beef bicol kare', color: 'fuchsia-700', percentage: '59%', amount: '38.45 AED' },
-    { name: 'chicken kare kea', color: 'orange-500', percentage: '30%', amount: '30 AED' },
-    { name: 'chicken zinger span', color: 'amber-500', percentage: '40%', amount: '40 AED' },
-  ];
+  useEffect(() => {
+    const fetchTopSellingData = async () => {
+      try {
+        const { topSelling } = await getLeastSellingData();
 
+        const groupedData = topSelling.reduce((accumulator, currentItem) => {
+          const existingItem = accumulator.find(item => item.itemName === currentItem.itemName);
+          if (existingItem) {
+            existingItem.total += currentItem.total;
+          } else {
+            accumulator.push({ itemName: currentItem.itemName, total: currentItem.total });
+          }
+          return accumulator;
+        }, []);
+
+        const sortedTopFiveData = groupedData
+          .sort((a, b) => b.total - a.total)
+          .slice(0, 5);
+
+        setTopFiveData(sortedTopFiveData);
+      } catch (error) {
+        console.error('Error fetching top selling data:', error);
+      }
+    };
+
+    const generateRandomColors = () => {
+      const colors = Array.from({ length: 5 }, () => getRandomColor());
+      setRandomColors(colors);
+    };
+
+    const getRandomColor = () => {
+      return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
+    };
+
+    fetchTopSellingData();
+    generateRandomColors();
+
+  }, []); 
+  
+  
+
+    
   return (
     <div
       style={{ boxShadow: theme.shadow }}
-      className="w-[380px] grow p-2 h-[100%] px-5 pb-3 rounded-xl flex-col justify-between items-start inline-flex"
+      className=" overflow-y-scroll  BillWiseGraph   h-[220px] w-[380px] grow p-2  px-5 pb-3 rounded-xl flex-col justify-between items-start inline-flex"
     >
       <div className="Frame235 grow self-stretch justify-center gap-12 items-center flex">
         <div className="Frame234 p-2.5 justify-center items-center gap-[92px] flex">
@@ -27,19 +64,21 @@ const LeastFiveSelling = () => {
         </div>
       </div>
 
-      {/* Dynamic Rendering based on leastFiveData */}
-      {leastFiveData.map((data, index) => (
-        <div key={index} className="Frame219 py-1.5 self-stretch justify-start items-start inline-flex">
+      {topFiveData.map((data, index) => (
+        <div key={index} className="Frame219 py-1.5 self-stretch justify-start items-start inline-flex   ">
           <div className={`Dining w-[180px] h-[12px] text-xs font-medium font-['Poppins'] justify-end items-end flex`}>
-            {data.name}&nbsp;&nbsp;
+            {data.itemName}&nbsp;&nbsp;
           </div>
           <div className="flex">
-            <div className={` grow shrink basis-0 w-[207px] justify-start items-start inline-flex`}>
+            <div className={` grow FiveProducts  shrink basis-0 w-[207px] justify-start items-start inline-flex`}>
               <div
-                className={`Rectangle35 self-stretch h-[10px] rounded-e-full bg-${data.color}`}
-                style={{ width: data.percentage }}
+                className={`Rectangle35 self-stretch  h-[10px] rounded-e-full `}
+                style={{
+                  width: `${(data.total / maxTotal) * 100}%`,
+                  backgroundColor: randomColors[index],
+                }}
               ></div>
-              <div className="text-xs font-medium font-['Poppins'] flex ">&nbsp;&nbsp;{data.amount}</div>
+              <div className="text-xs font-medium font-['Poppins'] flex ">&nbsp;&nbsp;{data.total}</div>
             </div>
           </div>
         </div>
@@ -48,4 +87,4 @@ const LeastFiveSelling = () => {
   );
 };
 
-export default LeastFiveSelling;
+export default TopFiveSell;

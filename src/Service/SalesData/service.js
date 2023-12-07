@@ -22,8 +22,10 @@ export const getItemsSalesData = async (startDate, endDate, selectedTab) => {
         'branchID': '1',
         'fromDate': "02/11/2023",
         'toDate': "10/11/2023",
+        'Token': 'your_access_token_here', // Add your token here
       },
     });
+    
 
     const filteredData = response.data.itemWiseSales
       .filter(item => item.billTypeName === selectedTab)

@@ -75,16 +75,34 @@ const Payment = () => {
 
   return (
     <div className="flex flex-wrap-reverse  gap-[10px]">
-      <div className=" ">
-        <div className="Frame65    grow flex-col justify-start items-start inline-flex">
-          <div className="Frame56  grow self-stretch h-11 justify-start items-start inline-flex">
-            <div className="Frame53 grow  self-stretch px-5 py-2 bg-neutral-900 border-r border-transparent border-opacity-20 justify-start items-center gap-2.5 flex">
-              <div className="BillNo grow w-80  text-stone-50 border-transparent text-xs font-normal">
+      <div 
+      
+      className=" ">
+        <div 
+        style={{boxShadow: theme.shadow}}
+        className="Frame65    grow flex-col justify-start items-start inline-flex">
+          <div
+          style={{
+            backgroundColor: theme.svgColor,
+            color: theme.TextDarkColor,
+          }}
+          className="Frame56  grow self-stretch h-11 justify-start items-start inline-flex">
+            <div
+            style={{
+              backgroundColor: theme.svgColor,
+              color: theme.TextDarkColor,
+            }} className="Frame53 grow  self-stretch px-5 py-2 bg-neutral-900 border-r border-transparent border-opacity-20 justify-start items-center gap-2.5 flex">
+              <div className="BillNo grow w-80   border-transparent text-xs font-normal">
                 Payment mode
               </div>
             </div>
-            <div className="Frame54 grow w-32 self-stretch px-5 py-2 bg-neutral-900 border-r border-transparent  border-opacity-20 justify-center items-center gap-2.5 flex">
-              <div className="Amount grow text-stone-50 text-xs border-transparent font-normal">
+            <div
+            style={{
+              backgroundColor: theme.svgColor,
+              color: theme.TextDarkColor,
+            }}
+            className="Frame54 grow w-32 self-stretch px-5 py-2 bg-neutral-900 border-r border-transparent  border-opacity-20 justify-center items-center gap-2.5 flex">
+              <div className="Amount grow  text-xs border-transparent font-normal">
                 Total Sales
               </div>
             </div>
@@ -94,12 +112,20 @@ const Payment = () => {
               [...sessionMap].map(([paymentMode, totalQuantity], index) => (
                 <div
                   key={index}
+                  style={{
+                    backgroundColor:
+                      index % 2 === 0
+                        ? theme.oddRowBackgroundColor
+                        : theme.evenRowBackgroundColor,
+                  }}
                   className={`Frame57 grow justify-start items-start inline-flex ${
                     index === 0 ? theme.tableRowLight : index === 1 ? theme.tableRowDark : index % 2 === 0 ? theme.tableRowLight : theme.tableRowDark
                   }`}
                 >
                   
-                  <div className="Frame53 grow w-96 self-stretch px-5 py-2 border-opacity-20 justify-start items-center gap-2.5 flex">
+                  <div 
+                  
+                  className="Frame53 grow w-96 self-stretch px-5 py-2 border-opacity-20 justify-start items-center gap-2.5 flex">
                     <div className="text-xs grow font-normal">
                       {paymentMode.charAt(0).toUpperCase() +
                         paymentMode.slice(1).toLowerCase()}
@@ -127,9 +153,12 @@ const Payment = () => {
             )}
           </div>
 
-          <div className="Frame56  grow self-stretch h-11 justify-start items-start inline-flex">
+          <div 
+        style={{boxShadow: theme.shadow}}
+          
+          className="Frame56  grow self-stretch h-11 justify-start items-start inline-flex">
             <div className="Frame53 grow  self-stretch px-5 py-2 bg-neutral-500 border-r border-transparent border-opacity-20 justify-start items-center gap-2.5 flex">
-              <div className="BillNo grow w-80  text-stone-50 border-transparent text-xs font-normal">
+              <div className="BillNo grow w-80   border-transparent text-xs font-normal">
                 Grand Total
               </div>
             </div>

@@ -10,11 +10,7 @@ import {
   Topproducts,
   Lstproducts,
 } from "../Service/Dashboar";
-import Colors from "../chart/circularProgressChart";
-import YourComponent from "../chart/circularProgressChart";
-import BarChart from "../chart/circularProgressChart";
-import ProgressiveCircularChart from "../chart/circularProgressChart";
-import CircularChart from "../chart/circularProgressChart";
+
 
 const watermarkStyle = {
   position: "absolute",

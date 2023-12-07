@@ -5,12 +5,9 @@ import { useState } from "react";
 import Excelsvg from "../component/svg/Excelsvg";
 import ThemeLD from "../component/svg/ThemeLD";
 import drawer from "../../src/images/drawer.png";
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
-import { getItemsSalesData } from "../Service/SalesData/service";
 import { useTranslation } from "react-i18next";
-import enFlagImage from "../images/flag/english.png";
-import arFlagImage from "../images/flag/uae.png";
+import MyDateRangePicker from "../component/DateRangePicker";
+import { DateRangePicker } from "rsuite";
 
 export const MainLayout = ({ children }) => {
   const { theme, toggleTheme } = useTheme();
@@ -141,12 +138,45 @@ export const MainLayout = ({ children }) => {
               </div>
             </div>
             <div className=" flex  justify-evenly gap-4 ">
-            <div className="language-dropdown">
-  <select className="select-box" onChange={(e) => changeLanguage(e.target.value)}>
-    <option value="en">English</option>
-    <option value="ar">Arabic</option>
-  </select>
-</div>
+
+
+            <div class=" h-7 justify-start items-center gap-3.5 inline-flex">
+                <div class=" justify-start items-center flex">
+                  <div class=" justify-start items-center flex">
+                    <div class="  justify-center items-center gap-2.5 flex">
+                      <div class="ExportToExcel text-xs font-normal ">
+                        Export to excel
+                      </div>
+                    </div>
+                  </div>
+                  <div class="XlsExcelXlsxLogosLineIconIcon1 flex-col justify-start items-start gap-2.5 inline-flex">
+                    <div class="Group w-4 h-4 relative"></div>
+                  </div>
+                </div>
+                <div class=" justify-start items-center flex">
+                  <div class=" h-7 pl-2.5 py-2.5 justify-center items-center gap-2.5 flex">
+                    <div class="LastUpdatedTime09Aug20230809Am grow shrink basis-0 text-xs font-normal ">
+                    {/* <DateRangePicker
+                     value={[startDate, endDate]} 
+                     /> */}
+
+                    </div>
+                  </div>
+                  <div class="RefreshFill0Wght200Grad0Opsz241 w-4 h-4 relative"></div>
+                </div>
+                <div class="LightAndDark p-px justify-start items-start gap-2.5 flex"></div>
+              </div>
+
+
+              <div className="language-dropdown">
+                <select
+                  className="select-box"
+                  onChange={(e) => changeLanguage(e.target.value)}
+                >
+                  <option value="en">English</option>
+                  <option value="ar">Arabic</option>
+                </select>
+              </div>
 
               <div className=" h-[18px] " />
               <button
@@ -155,10 +185,8 @@ export const MainLayout = ({ children }) => {
               >
                 <ThemeLD />
               </button>
+              
 
-              <div className="w-10 self-stretch pt-2 text-red-600 text-xs font-normal ">
-                Logout
-              </div>
               <button
                 className="  sideTogglee text-black  p-2 rounded-full"
                 onClick={toggleSideDrawer}

@@ -30,12 +30,12 @@ const SaleWiseComparison = () => {
   }, []);
 
   const colorArray = [
-    "#FF5733",
-    "#33FF57",
-    "#5733FF",
-    "#33B5E5",
-    "#FF8800",
-    "#FFD700",
+    "#8639BA",
+    "#E958A1",
+    "#F2B45C",
+    "#E8E465",
+    "#AE45C6",
+    "#EF7075",
     "#8A2BE2",
     "#008080",
   ];
@@ -127,12 +127,31 @@ const SaleWiseComparison = () => {
 
   const totalSalesSum = data.reduce((total, item) => total + item.total, 0);
 
+  const shouldAnimateOverflow = (sessionName) => {
+    const containerWidth = 62;
+    const element = document.createElement("div");
+    element.style.visibility = "hidden";
+    element.style.position = "absolute";
+    element.style.whiteSpace = "nowrap";
+    element.style.width = `${containerWidth}px`;
+    element.textContent =
+      sessionName.charAt(0).toUpperCase() + sessionName.slice(1).toLowerCase();
+
+    document.body.appendChild(element);
+
+    const doesOverflow = element.scrollWidth > element.clientWidth;
+
+    document.body.removeChild(element);
+
+    return doesOverflow;
+  };
+
   return (
     <div
       style={{ boxShadow: theme.shadow, overflow: "hidden" }}
-      className="flex-1 w-[330px] h-[225px] p-2 rounded-xl flex-col grow justify-between items-start inline-flex"
+       className="flex-1 w-[330px] h-[225px] p-2 rounded-xl flex-col grow justify-center items-center inline-flex"
     >
-      <div className="Frame232 px-2 flex-col justify-between items-start flex">
+      <div className="Frame232 px-2 flex-col grow justify-center items-center flex">
         <div className="Frame235 self-stretch justify-center grow gap-12 items-center flex">
           <div className="Frame234 p-2 grow justify-center items-center gap-[92px] flex">
             <div className="SalesWiseComparison text-xs font-semibold font-['Poppins']">
@@ -148,33 +167,35 @@ const SaleWiseComparison = () => {
           {[...sessionMap].map(([sessionName, totalQuantity], index) => (
             <div
               key={index}
-              className="Frame219 py-1.5 self-stretch justify-between items-start  gap-[10px] flex"
+              className="Frame219 py-1.5 self-stretch justify-between items-start  gap-1 flex"
             >
-              <div class="  Dining  text-xs font-medium font-['Poppins'] items-end flex overflow-hidden">
-                <span class="" title={sessionName}>
-                  <div className="scrolling-text">
+              <div
+                className={`Dining text-xs font-medium justify-start items-start flex w-[60px] overflow-hidden  ${
+                  shouldAnimateOverflow(sessionName) ? "animate-scroll" : ""
+                }`}
+              >
+                <span className="p-[2px] " title={sessionName}>
+                  <div className="scrolling-text  ">
                     {sessionName.charAt(0).toUpperCase() +
                       sessionName.slice(1).toLowerCase()}
-                    &nbsp;&nbsp;
                   </div>
                 </span>
               </div>
 
               <div className="flex">
                 <div
-                  className={`Frame217 grow shrink basis-0 w-[270px] md:w-[300px] sm:w-[100px] justify-start items-start gap-2.5 inline-flex`}
+                  className={` Frame217 grow shrink basis-0   justify-start items-start gap-2.5 inline-flex`}
                 >
                   <div
-                    className="self-stretch h-3.5"
+                    className="  h-3.5"
                     style={{
                       width: `${(totalQuantity / totalPercentage) * 100}%`,
                       backgroundColor: colorArray[index % colorArray.length],
                     }}
                   >
                     <div className="text-[8px] pt-[2px] shadow-2xl text-neutral-50 font-medium ">
-                   &nbsp; {totalQuantity}
+                      &nbsp; {totalQuantity}
                     </div>
-                   
                   </div>
                   <div className="text-xs font-medium font-['Poppins'] flex">
                     &nbsp;&nbsp;

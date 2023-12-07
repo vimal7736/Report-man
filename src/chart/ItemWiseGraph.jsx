@@ -85,6 +85,7 @@ const ItemWiseGraph = ({
         </div>
         <div className="Frame307  pt-3 self-stretch grow justify-between items-start inline-flex">
           <div className=" overflow  BillWiseGraph ItemWiseGraphContainer overflow-auto min-h-[530px] flex  flex-col max-h-[530px]">
+           
             {Array.isArray(sortedDisplayData) &&
             sortedDisplayData.length > 0 ? (
               sortedDisplayData.map((item, index) => (

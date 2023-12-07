@@ -6,6 +6,7 @@ import { useTheme } from "../../ThemeContext";
 import "./billgraph.css";
 import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
+import Loading from "../Loading";
 
 const BillGraph = ({
   data,
@@ -18,11 +19,10 @@ const BillGraph = ({
   selectedTab,
 }) => {
   const [displayMode, setDisplayMode] = useState("total");
+  const [showLoading, setShowLoading] = useState(false);
   const [consolidatedTotalSales, setConsolidatedTotalSales] = useState([]);
   const { theme } = useTheme();
-const { t } = useTranslation();
-  
-
+  const { t } = useTranslation();
 
   useEffect(() => {
     const consolidateData = (data) => {
@@ -53,13 +53,22 @@ const { t } = useTranslation();
       return consolidatedArray;
     };
 
+
+    let timeoutId;
+    
     if (selectedTab === "DaySummary") {
-      setDisplayMode("total");
-      const consolidatedData = consolidateData(totalSales);
-      setConsolidatedTotalSales(consolidatedData);
+      setShowLoading(true); // Show loading screen
+      timeoutId = setTimeout(() => {
+        const consolidatedData = consolidateData(totalSales);
+        setConsolidatedTotalSales(consolidatedData);
+        setShowLoading(false); // Hide loading screen after data is available
+      }, 1000); // Adjust the delay time as needed
     } else {
       setDisplayMode("itemWise");
     }
+
+    return () => clearTimeout(timeoutId); // Clear timeout on component unmount
+
   }, [selectedTab, totalSales]);
 
   const displayData =
@@ -90,7 +99,9 @@ const { t } = useTranslation();
   return (
     <div className="flex flex-wrap-reverse grow  justify-between    p-[12px]">
       <div className=" rounded-sm ">
+      
         <div className="Frame65 rounded-sm grow  flex-col justify-start items-start inline-flex">
+         
           <div
             style={{ boxShadow: theme.shadow }}
             className="Frame56 rounded-sm  grow self-stretch h-11 justify-start items-start inline-flex"
@@ -103,7 +114,7 @@ const { t } = useTranslation();
               className="Frame53 grow  self-stretch px-5 py-2  border-r border-transparent border-opacity-20 justify-start items-center rounded-s-sm gap-2.5 flex"
             >
               <div className="BillNo grow w-[18rem] rounded-lg  border-transparent text-xs font-normal">
-                 {t("Item Name")}
+                {t("Item Name")}
               </div>
             </div>
             <div
@@ -114,7 +125,7 @@ const { t } = useTranslation();
               className="Frame54  grow w-32 self-stretch px-5 py-2  border-r border-transparent  border-opacity-20 justify-center items-center gap-2.5 flex text-right"
             >
               <div className="Amount grow text-xs border-transparent font-normal">
-                 {t("Qty")}
+                {t("Qty")}
               </div>
             </div>
             <div
@@ -129,34 +140,38 @@ const { t } = useTranslation();
               </div>
             </div>
           </div>
-          {sortedDisplayData && sortedDisplayData.length > 0 ? (
-            <div className="BillWiseGraph overflow-auto flex flex-col max-h-[450px]">
-              {sortedDisplayData.map((bill, index) => (
-                <div
-                  key={index}
-                  style={{
-                    backgroundColor: index % 2 === 0 ? theme.oddRowBackgroundColor : theme.evenRowBackgroundColor,
-                  }}
-                  className={`Frame57 grow justify-start items-start inline-flex ${
-                    index % 2 === 0 ? "even-row" : "odd-row"
-                  }`}
-                >
-                  <div className="Frame53 grow w-[23rem] self-stretch px-5 py-2  border-black border-opacity-20 justify-start items-center gap-2.5 flex">
-                    <div className="text-xs grow font-normal">
+          {!showLoading && sortedDisplayData && sortedDisplayData.length > 0 ? (
+          <div className="BillWiseGraph overflow-auto flex flex-col max-h-[450px]">
+            {sortedDisplayData.map((bill, index) => (
+              <div
+                key={index}
+                style={{
+                  backgroundColor:
+                    index % 2 === 0
+                      ? theme.oddRowBackgroundColor
+                      : theme.evenRowBackgroundColor,
+                }}
+                className={`Frame57 grow justify-start items-start inline-flex ${
+                  index % 2 === 0 ? "even-row" : "odd-row"
+                }`}
+              >
+                <div className="Frame53 grow w-[23rem] self-stretch px-5 py-2 border-black border-opacity-20 justify-start items-center gap-2.5 flex">
+                  <div className="text-xs grow font-normal">
                     {t(bill.itemName)}
-                    </div>
-                  </div>
-                  <div className="Frame53 w-[8rem] self-stretch px-5 py-2   border-black border-opacity-20 justify-start items-center gap-2.5 flex">
-                    <div className="text-xs font-normal"> {t(bill.qty)}</div>
-                  </div>
-                  <div className="Frame54 grow w-36 shrink basis-0 self-stretch px-5 py-2  border-transparent border-opacity-20 justify-end items-center gap-2.5 flex">
-                    <div className="text-xs font-normal">{t(bill.total)}</div>
                   </div>
                 </div>
-              ))}
-            </div>
-          ) : (
-            <div className="w-[638px] mt-[90px] rounded-full flex justify-center ">
+                <div className="Frame53 w-[8rem] self-stretch px-5 py-2 border-black border-opacity-20 justify-start items-center gap-2.5 flex">
+                  <div className="text-xs font-normal"> {t(bill.qty)}</div>
+                </div>
+                <div className="Frame54 grow w-36 shrink basis-0 self-stretch px-5 py-2 border-transparent border-opacity-20 justify-end items-center gap-2.5 flex">
+                  <div className="text-xs font-normal">{t(bill.total)}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+        ) : (
+          !showLoading  && (
+            <div className="w-[638px] mt-[90px] rounded-full flex justify-center">
               <img
                 style={{
                   boxShadow: theme.shadow,
@@ -167,8 +182,18 @@ const { t } = useTranslation();
                 className="shadow"
               />
             </div>
-          )}
+          )
+        )}
           <div className="Frame56 grow self-stretch h-11 justify-start items-start inline-flex">
+
+          { loading && (
+            <div className="p-[280px]">
+          <div className="">
+            <Loading/>
+          </div>
+            </div>
+        )}
+
             {displayData && displayData.length > 0 && (
               <div className="Frame56  grow self-stretch h-11  justify-start items-start inline-flex">
                 <div className="Frame53 grow h-20  self-stretch px-5 py-2 bg-purple-500 border-r border-transparent pl-[52px] border-opacity-20 justify-start items-center gap-2.5 flex">

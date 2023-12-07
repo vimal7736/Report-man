@@ -9,6 +9,7 @@ export const getSectionwiseTaxData = async () => {
         'branchID': '',
         'fromDate': "02/11/2023",
         'toDate': "10/11/2023",
+        'Token': 'your_access_token_here', 
         },
     });
     console.log("🚀 ~ file: Tax.js:9 ~ getSectionwiseTaxData ~ response:", response.data.itemWiseSales)

@@ -7,12 +7,8 @@ import TotalPayment from "./DashBoardComponents/TotalPayment";
 import DaywiseComparison from "./DashBoardComponents/DaywiseComparison";
 import Collection from "./DashBoardComponents/Collection";
 import TopFiveSell from "./DashBoardComponents/TopFiveSell";
-import LeastFiveSelling from "./DashBoardComponents/LeastFiveSelling";
-import Line from "./line/Line";
-import Chart from "./svg/LineChart";
-import GradientLineChart from "../chart/GradientLineChart";
-import { App } from "../chart/DthreeLineChart";
 import "./Dashboard.css"
+import LeastFiveSelling from "./DashBoardComponents/LeastFiveSelling";
 
 const Dashboard = () => {
   const { theme, toggleTheme } = useTheme();
@@ -40,8 +36,7 @@ const Dashboard = () => {
       <div className="flex gap-[10px] p-[0.4rem] grow  flex-wrap">
         <Collection />
         <TopFiveSell />
-        <TopFiveSell />
-        {/* <LeastFiveSelling /> */}
+        <LeastFiveSelling />
       </div>
     </div>
   );

@@ -17,7 +17,7 @@ const DaywiseComparison = () => {
         style={{ boxShadow: theme.shadow }}
         className="  grow h-[322px] p-2.5 rounded-xl  f  "
       >
-        <div className="p-2.5  gap-[60px]   flex  justify-around ">
+        <div className="p-2.5    flex  justify-between  ">
           <div className="   text-lg  font-semibold font-['Poppins']">
             Day wise comparison
           </div>
